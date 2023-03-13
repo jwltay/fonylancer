@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :bids, only: %i[index new create update]
   end
 
+  # Routes below are renamed to make users who are freelancers clearer
   get 'freelancers/', to: 'users#index', as: :freelancers
   get 'freelancers/:id', to: 'users#show', as: :freelancer
 end
