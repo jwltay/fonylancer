@@ -3,7 +3,7 @@ class BidsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    if current_user == @job.user
+    if current_user == @job.employer
       @bids = @job.bids
     else
       render "Only the job owner can view bids" # move into locales in the future
@@ -15,7 +15,7 @@ class BidsController < ApplicationController
   end
 
   def create
-    bid = Bid.new(job: @job, user: current_user, rate: bid_params[:rate])
+    bid = Bid.new(job: @job, employer: current_user, rate: bid_params[:rate])
     if bid.save
       redirect_to job_path(@job)
     else
