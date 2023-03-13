@@ -10,7 +10,7 @@ class BidsController < ApplicationController
   end
 
   def create
-    bid = Bid.new(job: @job, user: bid_params[:user], rate: bid_params[:rate])
+    bid = Bid.new(job: @job, user: current_user, rate: bid_params[:rate])
     if bid.save
       redirect_to job_path(@job)
     else
@@ -21,7 +21,7 @@ class BidsController < ApplicationController
   private
 
   def bid_params
-    params.require(:bid).permit(:user, :rate)
+    params.require(:bid).permit(:rate)
   end
 
   def set_job
