@@ -1,5 +1,5 @@
 class BidsController < ApplicationController
-  before_action :set_job
+  before_action :set_job, :authenticate_user!
 
   def index
     @bids = @job.bids
