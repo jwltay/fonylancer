@@ -3,9 +3,11 @@
 <ul>
   <% @jobs.each do |job| %>
     <li>
-      <%= job.title %>
-      <%= job.description %>
-      <%= job.budget %>
+      <p><%= job.title %></p>
+      <p><%= job.description %></p>
+      <p><%= job.budget %></p>
+      <p><%= job.user.username %></p>
+      <p><%= job.user.name %></p>
     </li>
   <% end %>
 </ul>
