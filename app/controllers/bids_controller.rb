@@ -2,7 +2,11 @@ class BidsController < ApplicationController
   before_action :set_job, :authenticate_user!
 
   def index
-    @bids = @job.bids
+    if current_user == @job.user
+      @bids = @job.bids
+    else
+      render "Only the job owner can view bids" # move into locales in the future
+    end
   end
 
   def new
