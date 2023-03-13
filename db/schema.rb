@@ -10,8 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_082648) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bids", force: :cascade do |t|
+    t.integer "rate", null: false
+    t.boolean "accepted", default: false, null: false
+    t.bigint "freelancer_id", null: false
+    t.bigint "job_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["freelancer_id"], name: "index_bids_on_freelancer_id"
+    t.index ["job_id"], name: "index_bids_on_job_id"
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.integer "budget", null: false
+    t.bigint "employer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "start_date", null: false
+    t.datetime "end_date", null: false
+    t.index ["employer_id"], name: "index_jobs_on_employer_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "username", null: false
+    t.string "name", null: false
+    t.text "description"
+    t.string "location"
+    t.string "tagline"
+    t.boolean "want_to_work", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "bids", "jobs"
+  add_foreign_key "bids", "users", column: "freelancer_id"
+  add_foreign_key "jobs", "users", column: "employer_id"
 end
