@@ -10,17 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_13_073608) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_074737) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bids", force: :cascade do |t|
+    t.integer "rate", null: false
+    t.boolean "accepted", default: false, null: false
+    t.bigint "user_id", null: false
+    t.bigint "job_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_id"], name: "index_bids_on_job_id"
+    t.index ["user_id"], name: "index_bids_on_user_id"
+  end
+
   create_table "jobs", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.integer "budget"
+    t.string "title", null: false
+    t.text "description", null: false
+    t.integer "budget", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "start_date", null: false
+    t.datetime "end_date", null: false
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
@@ -42,5 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_073608) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bids", "jobs"
+  add_foreign_key "bids", "users"
   add_foreign_key "jobs", "users"
 end
