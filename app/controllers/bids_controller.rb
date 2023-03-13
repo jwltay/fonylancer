@@ -1,5 +1,6 @@
 class BidsController < ApplicationController
-  before_action :set_job, :authenticate_user!
+  before_action :set_job, except: :update
+  before_action :authenticate_user!
 
   def index
     if current_user == @job.user
@@ -20,6 +21,14 @@ class BidsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def update
+    @bid = Bid.find(params[:id])
+    @bid.accepted = true
+    @bid.save!
+    @job = Job.find(params[:job_id])
+    redirect_to job_path(@job)
   end
 
   private
