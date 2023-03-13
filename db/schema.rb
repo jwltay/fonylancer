@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_13_074737) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_082316) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -29,12 +29,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_074737) do
     t.string "title", null: false
     t.text "description", null: false
     t.integer "budget", null: false
-    t.bigint "user_id", null: false
+    t.bigint "employer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "start_date", null: false
     t.datetime "end_date", null: false
-    t.index ["user_id"], name: "index_jobs_on_user_id"
+    t.index ["employer_id"], name: "index_jobs_on_employer_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,5 +57,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_074737) do
 
   add_foreign_key "bids", "jobs"
   add_foreign_key "bids", "users"
-  add_foreign_key "jobs", "users"
+  add_foreign_key "jobs", "users", column: "employer_id"
 end
