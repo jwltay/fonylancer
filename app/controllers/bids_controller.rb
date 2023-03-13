@@ -15,7 +15,7 @@ class BidsController < ApplicationController
   end
 
   def create
-    bid = Bid.new(job: @job, employer: current_user, rate: bid_params[:rate])
+    bid = Bid.new(job: @job, freelancer: current_user, rate: bid_params[:rate])
     if bid.save
       redirect_to job_path(@job)
     else
