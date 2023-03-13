@@ -14,6 +14,7 @@
     password: Faker::Internet.password,
     description: Faker::Quote.famous_last_words,
     location: Faker::Address.full_address,
-    tagline: Faker::Marketing.buzzwords
+    tagline: Faker::Marketing.buzzwords,
+    want_to_work: (rand(0..1) ? true : false)
   )
 end
