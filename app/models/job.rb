@@ -1,6 +1,6 @@
 class Job < ApplicationRecord
-  belongs_to :user, class_name: "User", foreign_key: :employer_id
-  has_many :users, through: :bids
+  belongs_to :employer, class_name: "User", foreign_key: :employer_id
+  has_many :freelancers, through: :bids
   has_many :bids
 
   validates :title, presence: true
