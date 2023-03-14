@@ -27,8 +27,21 @@
           <p><%= @user.description %></p>
         </div>
       </div>
+
       <div class="white-box">
         <h3 class="border-bottom">Portfolio Items</h3>
+        <%# these should be cards! %>
+
+        <ul class="list-unstyled">
+          <div class="cards">
+            <% @successful_bids.each do |bid| %>
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+                <li><%= bid.job.title %></li>
+              </div>
+            <% end %>
+          </div>
+        </ul>
+        <p>blank space</p>
       </div>
     </div>
   </div>
