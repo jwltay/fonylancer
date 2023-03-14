@@ -1,5 +1,4 @@
 <h2>Job index</h2>
-
 <ul>
   <% @jobs.each do |job| %>
     <li>
@@ -11,3 +10,26 @@
     </li>
   <% end %>
 </ul>
+<div class="cover mb-4 d-flex align-items-center justify-content-center">
+  <div class="text-center text-white">
+    <h1>Save any kind of jobs</h1>
+    <h3 class="typed-js" data-controller="typed-js"></h3>
+  </div>
+</div>
+<div class="container py-5">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h3 class="mb-0"> Jobs</h3>
+    <%= link_to "Create a job list", new_job_path, class: "btn btn-flat" %>
+  </div>
+  <div class="row">
+    <% @jobs.each do |job| %>
+      <div class="co-12 col-sm-6 col-md-4 mb-3">
+        <%= link_to job_path(job), class:"text-decoration-none" do %>
+          <div class="card-category" >
+            <%= job.title %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
