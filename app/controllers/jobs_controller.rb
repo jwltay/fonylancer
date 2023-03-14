@@ -8,13 +8,13 @@ class JobsController < ApplicationController
   end
 
   def new
-    authorize @job
+    # authorize @job
     @job = Job.new
     @job.employer = current_user
   end
 
   def create
-    authorize @job
+    # authorize @job
     @job = Job.new(job_params)
     if @job.save
       redirect_to job_path(@job)
