@@ -1,10 +1,25 @@
-<h2>Index of freelancers</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <div class="filter-form">
+        <h2>Freelancers For Hire</h2>
+      </div>
+    </div>
 
-<ul>
-  <% @freelancers.each do |freelancer| %>
-    <li>
-      <%= freelancer.username %>
-      <%= freelancer.location %>
-    </li>
-  <% end %>
-</ul>
+    <div class="col-8">
+      <div class="freelancer-wrapper">
+        <% @freelancers.each do |freelancer| %>
+          <div class="freelancer-card d-flex pt-3">
+            <%= image_tag "https://source.unsplash.com/random" %>
+            <div class="freelancer-details">
+              <h3><%= freelancer.username %></h3>
+              <p><%= freelancer.location %></p>
+              <p><%= freelancer.tagline %></p>
+              <p><%= freelancer.description %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
