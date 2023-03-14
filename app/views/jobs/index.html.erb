@@ -1,17 +1,5 @@
-<h2>Job index</h2>
-<ul>
-  <% @jobs.each do |job| %>
-    <li>
-      <p><%= job.title %></p>
-      <p><%= job.description %></p>
-      <p><%= job.budget %></p>
-      <p><%= job.user.username %></p>
-      <p><%= job.user.name %></p>
-    </li>
-  <% end %>
-</ul>
 <div class="cover mb-4 d-flex align-items-center justify-content-center">
-  <div class="text-center text-white">
+  <div class="text-center text-black">
     <h1>Save any kind of jobs</h1>
     <h3 class="typed-js" data-controller="typed-js"></h3>
   </div>
@@ -22,11 +10,16 @@
     <%= link_to "Create a job list", new_job_path, class: "btn btn-flat" %>
   </div>
   <div class="row">
+    <div class="col-4">col-8</div>
+    <div class="col-8">col-4</div>
     <% @jobs.each do |job| %>
       <div class="co-12 col-sm-6 col-md-4 mb-3">
         <%= link_to job_path(job), class:"text-decoration-none" do %>
           <div class="card-category" >
             <%= job.title %>
+            <div>
+              <p><%= job.description %></p>
+            </div>
           </div>
         <% end %>
       </div>
