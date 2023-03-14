@@ -17,8 +17,8 @@
           <p><%= @user.location.split(",")[1] %></p>
           <p><%= rand(1..200) %>
             Recommendations</p>
-          <p>Joined
-            <%= @user.created_at %></p>
+          <p>
+            <%= @user.created_at.strftime("Joined %B %d, %Y") %></p>
         </div>
         <div class="flex-grow-1 ms-2">
           <div class="d-flex justify-content-between">
