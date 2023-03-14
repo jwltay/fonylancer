@@ -1,3 +1,4 @@
+<h2>Index of jobs</h2>
 <div class="cover mb-4 d-flex align-items-center justify-content-center">
   <div class="text-center text-black">
     <h1>Save any kind of jobs</h1>
@@ -10,8 +11,6 @@
     <%= link_to "Create a job list", new_job_path, class: "btn btn-flat" %>
   </div>
   <div class="row">
-    <div class="col-4">col-8</div>
-    <div class="col-8">col-4</div>
     <% @jobs.each do |job| %>
       <div class="co-12 col-sm-6 col-md-4 mb-3">
         <%= link_to job_path(job), class:"text-decoration-none" do %>
