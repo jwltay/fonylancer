@@ -1,6 +1,12 @@
-<h2><%= @user.username %>'s profile</h2>
+<div class="d-flex">
+  <h2>
+    <strong><%= @user.name %></strong>
+    @<%= @user.username %>
+  </h2>
+  <div class="btn btn-primary"><%= link_to "Edit profile", '#' %></div>
+</div>
 
-<p>
+<!---- <p>
   <%= @user.email %>
   <%= @user.name %>
   <%= @user.description %>
@@ -8,3 +14,4 @@
   <%= @user.tagline %>
   <%= @user.want_to_work %>
 </p>
+---->
