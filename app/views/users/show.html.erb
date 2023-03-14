@@ -1,22 +1,16 @@
 <div class="background-img">
   <div class="container">
-    <div class="white-box">
-      <div class="d-flex justify-content-between">
-        <h2>
-          <strong><%= @user.name %></strong>
-          @<%= @user.username %>
-        </h2>
-        <%= link_to "Edit profile", '#', class: "btn btn-primary" %>
+    <div class="white-box d-flex justify-content-between">
+      <img src="https://source.unsplash.com/random" alt="avatar" class="rounded me-2" style="width: 250px; height: 250px;">
+        <div class="flex-grow-1 ms-2">
+          <div class="d-flex justify-content-between">
+            <h2>
+              <strong><%= @user.name %></strong>
+              @<%= @user.username %>
+            </h2>
+            <a href="#" class="btn btn-primary">Edit profile</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!---- <p>
-      <%= @user.email %>
-      <%= @user.name %>
-      <%= @user.description %>
-      <%= @user.location %>
-      <%= @user.tagline %>
-      <%= @user.want_to_work %>
-    </p>
-    ----></p>
