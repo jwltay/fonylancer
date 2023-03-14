@@ -32,3 +32,20 @@ end
     end_date: Date.today + 3
   )
 end
+
+# seeds bids for jobs
+Job.all.each do |job|
+  3.times do
+    Bid.create!(
+      rate: rand(100..1000),
+      freelancer_id: (
+        x = 0
+        until x != job.employer_id do
+          x = rand(1..10)
+        end
+        x
+      ),
+      job_id: job.id
+    )
+  end
+end
