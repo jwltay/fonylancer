@@ -1,7 +1,20 @@
-<div class="background-img">
+<div class="background-img"></div>
+
+<div class="profile-bar">
+  <div class="container">
+    <div class="profile-bar-content">
+      <img src="https://source.unsplash.com/random" alt="avatar" class="rounded me-3" style="width: 50px; height: 50px; object-fit: cover;">
+        <h4 class="fs-sm"><%= @user.name %></h4>
+      </div>
+    </div>
+  </div>
+
   <div class="container">
     <div class="white-box d-flex justify-content-between">
-      <img src="https://source.unsplash.com/random" alt="avatar" class="rounded me-2" style="width: 250px; height: 250px;">
+      <div class="d-flex flex-column">
+        <img src="https://source.unsplash.com/random" alt="avatar" class="rounded me-2 mb-2" style="width: 250px; height: 250px; object-fit: cover;">
+          <p><%= @user.location.split(",")[1] %></p>
+        </div>
         <div class="flex-grow-1 ms-2">
           <div class="d-flex justify-content-between">
             <h2>
@@ -10,7 +23,12 @@
             </h2>
             <a href="#" class="btn btn-primary">Edit profile</a>
           </div>
+          <p class="font-weight-light"><%= @user.tagline %></p>
+          <p><%= @user.description %></p>
         </div>
+      </div>
+      <div class="white-box">
+        <h3>Portfilio Items</h3>
       </div>
     </div>
   </div>
