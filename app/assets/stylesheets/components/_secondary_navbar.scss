@@ -1,0 +1,19 @@
+.sec-navbar {
+  background: rgb(14,23,36);
+  color: white;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.sec-navbar .btn {
+  color: white;
+  font-size: 0.85rem;
+  height: 100%;
+  padding: 1rem;
+}
+
+.sec-navbar a:hover {
+  background: #ffffff26;
+}
