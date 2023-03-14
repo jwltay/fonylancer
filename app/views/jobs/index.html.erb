@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h2>Index of jobs</h2>
 <div class="cover mb-4 d-flex align-items-center justify-content-center">
   <div class="text-center text-black">
@@ -25,3 +26,18 @@
     <% end %>
   </div>
 </div>
+=======
+<h2>Job index</h2>
+
+<ul>
+  <% @jobs.each do |job| %>
+    <li>
+      <p><%= job.title %></p>
+      <p><%= job.description %></p>
+      <p><%= job.budget %></p>
+      <p><%= job.employer.username %></p>
+      <p><%= job.employer.name %></p>
+    </li>
+  <% end %>
+</ul>
+>>>>>>> master
