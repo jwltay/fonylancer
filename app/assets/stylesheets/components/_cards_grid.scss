@@ -4,13 +4,11 @@
   grid-gap: 16px;
   overflow: hidden;
   height: 180px;
-  transition: transform .2s;
 }
 
-.cards:hover .card-category {
-  height: 100%;
-  width: 100%;
-  transform: scale(1.1);
+.cards > .card-category:hover {
+  transform: scale(1.05);
+  transition: transform .5s ease;
 }
 
 // Smallest device
