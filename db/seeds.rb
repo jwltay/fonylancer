@@ -20,7 +20,7 @@
   )
 end
 
-# seeds jobs
+# # seeds jobs
 
 5.times do
   Job.create!(
@@ -35,16 +35,10 @@ end
 
 # seeds bids for jobs
 Job.all.each do |job|
-  3.times do
+  2.times do
     Bid.create!(
       rate: rand(100..1000),
-      freelancer_id: (
-        x = 0
-        until x != job.employer_id do
-          x = rand(1..10)
-        end
-        x
-      ),
+      freelancer_id: User.find(([1, 2, 3, 4, 5, 6, 7, 8, 9, 10] - [job.employer_id]).sample).id,
       job_id: job.id
     )
   end
