@@ -7,7 +7,7 @@ export default class extends Controller {
   }
 
   makeOpaque() {
-    if (window.scrollY > 25) {
+    if (window.scrollY > 50) {
       this.element.classList.add("profile-bar-opaque")
     } else {
       this.element.classList.remove("profile-bar-opqaue")
