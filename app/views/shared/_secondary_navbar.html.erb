@@ -1,9 +1,29 @@
 <div class="sec-navbar">
   <div class="container-fluid justify-content-start">
-    <%= link_to "Find Jobs", "#", class: "btn" %>
-    <%= link_to "Hire Freelancers", freelancers_path, class: "btn" %>
-    <%= link_to "Get Ideas", "#", class: "btn" %>
-    <%= link_to "About", "#", class: "btn" %>
-    <%= link_to "Resources", "#", class: "btn" %>
+    <%= link_to "Find Jobs", "#", class: "btn job" %>
+    <div class="job-link-card">
+      <h3>Card title</h3>
+      <p>Card content goes here.</p>
+    </div>
+    <%= link_to "Hire Freelancers", freelancers_path, class: "btn freelancer" %>
+    <div class="freelancer-link-card">
+      <h3>Card 2</h3>
+      <p>Card 2 content goes here.</p>
+    </div>
+    <%= link_to "Get Ideas", "#", class: "btn idea" %>
+    <div class="idea-link-card">
+      <h3>Card 3</h3>
+      <p>Card 3 content goes here.</p>
+    </div>
+    <%= link_to "About", "#", class: "btn about" %>
+    <div class="about-link-card">
+      <h3>Card 4</h3>
+      <p>Card 4 content goes here.</p>
+    </div>
+    <%= link_to "Resources", "#", class: "btn resource" %>
+    <div class="resource-link-card">
+      <h3>Card 5</h3>
+      <p>Card 5 content goes here.</p>
+    </div>
   </div>
 </div>

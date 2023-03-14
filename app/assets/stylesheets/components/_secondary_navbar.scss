@@ -5,6 +5,7 @@
   display: flex;
   justify-content: start;
   align-items: center;
+  position: relative;
 }
 
 .sec-navbar .btn {
@@ -14,6 +15,96 @@
   padding: 1rem;
 }
 
-.sec-navbar a:hover {
+.sec-navbar .btn:hover {
   background: #ffffff26;
+}
+
+.job-link-card {
+  position: absolute;
+  top: 54px;
+  left: 10px;
+  z-index: 1;
+  display: none;
+  width: 200px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  color: black;
+}
+
+.freelancer-link-card {
+  position: absolute;
+  top: 54px;
+  left: 120px;
+  z-index: 1;
+  display: none;
+  width: 200px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  color: black;
+}
+
+.idea-link-card {
+  position: absolute;
+  top: 54px;
+  left: 240px;
+  z-index: 1;
+  display: none;
+  width: 200px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  color: black;
+}
+
+.about-link-card {
+  position: absolute;
+  top: 54px;
+  left: 310px;
+  z-index: 1;
+  display: none;
+  width: 200px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  color: black;
+}
+
+.resource-link-card {
+  position: absolute;
+  top: 54px;
+  left: 410px;
+  z-index: 1;
+  display: none;
+  width: 200px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  color: black;
+}
+
+.job:hover + .job-link-card {
+  display: block;
+}
+
+.freelancer:hover + .freelancer-link-card {
+  display: block;
+}
+
+.idea:hover + .idea-link-card {
+  display: block;
+}
+
+.about:hover + .about-link-card {
+  display: block;
+}
+
+.resource:hover + .resource-link-card {
+  display: block;
 }
