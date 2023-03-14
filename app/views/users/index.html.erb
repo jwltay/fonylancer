@@ -8,6 +8,7 @@
 
     <div class="col-lg-8 col-sm-12">
       <div class="freelancer-wrapper">
+        <%= will_paginate @freelancers %>
         <% @freelancers.each do |freelancer| %>
           <div class="freelancer-card d-flex pt-3">
             <%= image_tag "https://source.unsplash.com/random" %>
