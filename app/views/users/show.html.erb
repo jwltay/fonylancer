@@ -10,10 +10,15 @@
   </div>
 
   <div class="container">
+
     <div class="white-box d-flex justify-content-between">
       <div class="d-flex flex-column">
         <img src="https://source.unsplash.com/random" alt="avatar" class="rounded me-2 mb-2" style="width: 250px; height: 250px; object-fit: cover;">
           <p><%= @user.location.split(",")[1] %></p>
+          <p><%= rand(1..200) %>
+            Recommendations</p>
+          <p>Joined
+            <%= @user.created_at %></p>
         </div>
         <div class="flex-grow-1 ms-2">
           <div class="d-flex justify-content-between">
@@ -24,14 +29,32 @@
             <a href="#" class="btn btn-primary">Edit profile</a>
           </div>
           <p class="font-weight-light"><%= @user.tagline %></p>
+          <div class="py-2 row">
+            <p class="col-6">
+              <strong class="text-success"><%= rand(90..100) %>%</strong>
+              Jobs Completed
+            </p>
+            <p class="col-6">
+              <strong class="text-success"><%= rand(90..100) %>%</strong>
+              On Budget
+            </p>
+          </div>
+          <div class="row py-2">
+            <p class="col-6">
+              <strong class="text-success"><%= rand(90..100) %>%</strong>
+              On Time
+            </p>
+            <p class="col-6">
+              <strong class=" text-success"><%= rand(10..20) %>%</strong>
+              Repeat Hire
+            </p>
+          </div>
           <p><%= @user.description %></p>
         </div>
       </div>
 
       <div class="white-box">
         <h3 class="border-bottom">Portfolio Items</h3>
-        <%# these should be cards! %>
-
         <ul class="list-unstyled">
           <div class="cards">
             <% @successful_bids.each do |bid| %>
@@ -43,4 +66,5 @@
         </ul>
       </div>
     </div>
+
   </div>
