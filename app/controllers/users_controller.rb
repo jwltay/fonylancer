@@ -5,6 +5,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @bids = Bid.where(freelancer: @user, accepted: true)
+    @successful_bids = Bid.where(freelancer: @user, accepted: true)
   end
 end
