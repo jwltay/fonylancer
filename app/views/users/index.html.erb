@@ -1,0 +1,10 @@
+<h2>Index of freelancers</h2>
+
+<ul>
+  <% @freelancers.each do |freelancer| %>
+    <li>
+      <%= freelancer.username %>
+      <%= freelancer.location %>
+    </li>
+  <% end %>
+</ul>

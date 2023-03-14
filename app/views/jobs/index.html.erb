@@ -1,0 +1,13 @@
+<h2>Job index</h2>
+
+<ul>
+  <% @jobs.each do |job| %>
+    <li>
+      <p><%= job.title %></p>
+      <p><%= job.description %></p>
+      <p><%= job.budget %></p>
+      <p><%= job.user.username %></p>
+      <p><%= job.user.name %></p>
+    </li>
+  <% end %>
+</ul>
