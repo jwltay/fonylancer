@@ -11,6 +11,11 @@
   box-shadow: 0px -1px 5px 0.2px rgb(137, 137, 137);
 }
 
+.freelancer-wrapper > p{
+  padding-left: 16px;
+  font-size: 12px;
+}
+
 .freelancer-card {
   border-bottom: 1px dotted black;
   padding: 12px;
@@ -37,7 +42,7 @@
   height: 34px;
 }
 
-.freelancer-details a {
+.freelancer-details .category {
   text-decoration: none;
   font-weight: bold;
   color: black;
