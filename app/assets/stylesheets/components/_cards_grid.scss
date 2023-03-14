@@ -6,9 +6,18 @@
   height: 180px;
 }
 
-.cards > .card-category:hover {
+.cards a {
+  opacity: 0;
+}
+
+.cards .card-category:hover {
   transform: scale(1.05);
   transition: transform .5s ease;
+}
+
+.cards .card-category:hover a {
+  opacity: 1;
+  transition: opacity .5s;
 }
 
 // Smallest device
