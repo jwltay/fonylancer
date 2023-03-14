@@ -1,19 +1,37 @@
 .filter-form {
   padding: 8px;
-  border: 1px solid black;
   text-align: center;
+  box-shadow: 0px -1px 5px 0.2px rgb(137, 137, 137);
+  background-color: white;
 }
 
 .freelancer-wrapper {
-  border: 1px solid black;
-  padding: 24px;
+  background-color: white;
+  padding-top: 0;
+  box-shadow: 0px -1px 5px 0.2px rgb(137, 137, 137);
 }
 
 .freelancer-card {
-  border-bottom: 1px dotted red;
+  border-bottom: 1px dotted black;
+  padding: 12px;
+  padding-bottom: 0;
 }
 
-.freelancer-card img {
+.freelancer-card:hover {
+  background-color: rgb(216, 216, 216);
+}
+
+.freelancer-card>img {
   height: 100px;
-  margin-right: 20px;
+  margin-right: 16px;
+}
+
+.freelancer-details {
+  width: 100%;
+}
+
+.freelancer-details .btn{
+  padding: 0;
+  padding-right: 2px;
+  height: 34px;
 }

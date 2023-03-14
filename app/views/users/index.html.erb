@@ -1,19 +1,24 @@
-<div class="container">
+<div class="container mt-2">
   <div class="row">
-    <div class="col-4">
+    <div class="col-lg-4 col-sm-12">
       <div class="filter-form">
         <h2>Freelancers For Hire</h2>
       </div>
     </div>
 
-    <div class="col-8">
+    <div class="col-lg-8 col-sm-12">
       <div class="freelancer-wrapper">
         <% @freelancers.each do |freelancer| %>
           <div class="freelancer-card d-flex pt-3">
             <%= image_tag "https://source.unsplash.com/random" %>
             <div class="freelancer-details">
-              <h3><%= freelancer.username %></h3>
-              <p><%= freelancer.location %></p>
+              <div class="freelancer-header d-flex justify-content-between">
+                <h3><%= freelancer.username %></h3>
+                <%= link_to new_user_registration_path, class: "btn btn-primary" do %>
+                  <%= image_tag "small_bird.jpg", style: "height: 32px" %>
+                  Hire me
+                <% end %>
+              </div>
               <p><%= freelancer.tagline %></p>
               <p><%= freelancer.description %></p>
             </div>
