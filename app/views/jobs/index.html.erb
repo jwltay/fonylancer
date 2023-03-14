@@ -1,43 +1,39 @@
-<<<<<<< HEAD
 <h2>Index of jobs</h2>
-<div class="cover mb-4 d-flex align-items-center justify-content-center">
-  <div class="text-center text-black">
-    <h1>Save any kind of jobs</h1>
-    <h3 class="typed-js" data-controller="typed-js"></h3>
-  </div>
-</div>
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
-    <h3 class="mb-0"> Jobs</h3>
     <%= link_to "Create a job list", new_job_path, class: "btn btn-flat" %>
   </div>
+</div>
+<div class="container">
   <div class="row">
-    <% @jobs.each do |job| %>
-      <div class="co-12 col-sm-6 col-md-4 mb-3">
-        <%= link_to job_path(job), class:"text-decoration-none" do %>
-          <div class="card-category" >
-            <%= job.title %>
-            <div>
+    <div class="col-4">
+      <div class="filter-form">
+        <h2>Top Jobs</h2>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="job-wrapper">
+        <% @jobs.each do |job| %>
+          <div class="job-card d-flex pt-3">
+            <%= image_tag "https://source.unsplash.com/random" %>
+            <div class="job-details">
+              <div class="co-12 col-sm-6 col-md-4 mb-3">
+                <%= link_to job_path(job), class:"text-decoration-none" do %>
+                  <div class="card-category" >
+                    <%= job.title %>
+                  </div>
+                <% end %>
+              </div>
               <p><%= job.description %></p>
+              <div class="d-flex">
+                <p><%= job.budget %></p>
+              </div>
+              <p><%= job.employer.username %></p>
+              <p><%= job.employer.name %></p>
             </div>
           </div>
         <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
-=======
-<h2>Job index</h2>
-
-<ul>
-  <% @jobs.each do |job| %>
-    <li>
-      <p><%= job.title %></p>
-      <p><%= job.description %></p>
-      <p><%= job.budget %></p>
-      <p><%= job.employer.username %></p>
-      <p><%= job.employer.name %></p>
-    </li>
-  <% end %>
-</ul>
->>>>>>> master
