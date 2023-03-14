@@ -7,5 +7,5 @@ import { application } from "./application"
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import ProfileBarController from "./profile_bar_controller"
-application.register("profile-bar", ProfileBarController)
+import ProfilebarController from "./profilebar_controller"
+application.register("profilebar", ProfilebarController)
