@@ -1,5 +1,5 @@
 class Job < ApplicationRecord
-  belongs_to :employer
+  belongs_to :employer, class_name: "User", foreign_key: :employer_id
   has_many :freelancers, through: :bids
   has_many :bids
 
