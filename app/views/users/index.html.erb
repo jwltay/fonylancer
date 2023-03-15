@@ -3,13 +3,15 @@
     <div class="col-lg-12 col-sm-12">
       <div class="freelancer-wrapper">
         <%= will_paginate @freelancers %>
-        <p>Showing <%= @freelancers.count %> results</p>
+        <p>Showing
+          <%= @freelancers.count %>
+          results</p>
         <% @freelancers.each do |freelancer| %>
           <div class="freelancer-card d-flex pt-3">
             <%= image_tag "https://source.unsplash.com/random" %>
             <div class="freelancer-details">
               <div class="freelancer-header d-flex justify-content-between">
-                <h3><%= freelancer.username %></h3>
+                <h3><%= link_to freelancer.username, freelancer_path(freelancer) %></h3>
                 <%= link_to new_user_registration_path, class: "btn btn-primary" do %>
                   <%= image_tag "small_bird.jpg", style: "height: 32px" %>
                   Hire me
