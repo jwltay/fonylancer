@@ -13,12 +13,15 @@
         <div class="d-flex justify-content-between">
           <p><span class="d-block pt-2 px-2"><%= @jobs.count %> jobs found, pricing in USD</span></p>
           <%= will_paginate @jobs %>
+          <p>Showing
+            <%= @jobs.count %>
+            results</p>
         </div>
         <% @jobs.each do |job| %>
           <div class="freelancer-card d-flex pt-3">
             <div class="job-details">
               <%= link_to job_path(job), class:"text-decoration-none" do %>
-                  <%= job.title %>
+                <%= job.title %>
               <% end %>
               <p><%= job.description %></p>
               <p><%= job.budget %></p>
