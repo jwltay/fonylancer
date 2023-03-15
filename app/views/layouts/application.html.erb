@@ -14,8 +14,11 @@
         <p class="alert"><%= alert %></p>
       <% end %>
 
-      <%= render "shared/navbar" %>
-      <%= render "shared/secondary_navbar" %>
+      <% unless current_page?(new_job_path) %>
+        <%= render "shared/navbar" %>
+        <%= render "shared/secondary_navbar" %>
+      <% end %>
+
       <%= yield %>
       <%= render "shared/flashes" %>
     </body>
