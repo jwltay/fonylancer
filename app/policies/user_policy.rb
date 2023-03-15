@@ -5,4 +5,8 @@ class UserPolicy < ApplicationPolicy
       scope.where(want_to_work: true)
     end
   end
+
+  def show?
+    true
+  end
 end
