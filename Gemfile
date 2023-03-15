@@ -31,7 +31,11 @@ gem "devise"
 
 gem "pundit"
 
+<<<<<<< HEAD
 gem "will_paginate"
+=======
+gem "webpacker"
+>>>>>>> master
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
