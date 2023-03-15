@@ -9,23 +9,19 @@
       <% end %>
     </div>
     <div class="col-12">
-      <div class="job-wrapper">
-        <%= will_paginate @jobs %>
+      <div class="freelancer-wrapper">
+        <div class="d-flex justify-content-between">
+          <p><span class="d-block pt-2 px-2"><%= @jobs.count %> jobs found, pricing in USD</span></p>
+          <%= will_paginate @jobs %>
+        </div>
         <% @jobs.each do |job| %>
-          <div class="job-card d-flex pt-3">
-            <%= image_tag "https://source.unsplash.com/random" %>
+          <div class="freelancer-card d-flex pt-3">
             <div class="job-details">
-              <div class="co-12 col-sm-6 col-md-4 mb-3">
-                <%= link_to job_path(job), class:"text-decoration-none" do %>
-                  <div class="card-category" >
-                    <%= job.title %>
-                  </div>
-                <% end %>
-              </div>
+              <%= link_to job_path(job), class:"text-decoration-none" do %>
+                  <%= job.title %>
+              <% end %>
               <p><%= job.description %></p>
-              <div class="d-flex">
-                <p><%= job.budget %></p>
-              </div>
+              <p><%= job.budget %></p>
               <p><%= job.employer.username %></p>
               <p><%= job.employer.name %></p>
             </div>
