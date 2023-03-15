@@ -1,0 +1,16 @@
+.profile-bar {
+  background-color: white;
+  opacity: 0;
+  position: sticky;
+  top: 0px;
+}
+
+.profile-bar-content {
+  display: flex;
+  align-items: end;
+  padding: 8px;
+}
+
+.profile-bar-opaque {
+  opacity: 1;
+}
