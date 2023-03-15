@@ -3,6 +3,30 @@
     <%= link_to "#", class: "navbar-brand" do %>
       <%= image_tag "freelancerlogo.png" %>
     <% end %>
+    <% if user_signed_in? %>
+      <li class="nav-item active">
+        <%= link_to "Home", "#", class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Browse", jobs_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Manage", "#", class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Groups", "#", class: "nav-link" %>
+      </li>
+    <% else %>
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <%= link_to "How It Works", "#", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Browse Jobs", jobs_path, class: "nav-link" %>
+        </li>
+      </ul>
+    <% end %>
+
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,23 +35,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Browse", jobs_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Manage", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Groups", "#", class: "nav-link" %>
-          </li>
           <li class="nav-item">
             <%= link_to "Messages", "#", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "https://source.unsplash.com/random", class: "avatar-square dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>
@@ -35,12 +47,7 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "How It Works", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Browse Jobs", jobs_path, class: "nav-link" %>
-          </li>
+
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
