@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   def index
-    @jobs = Job.all
+    @jobs = Job.all.paginate(page: params[:page], per_page: 5)
   end
 
   def show
@@ -8,11 +8,15 @@ class JobsController < ApplicationController
   end
 
   def new
+    # authorize @job
     @job = Job.new
+    @job.employer = current_user
   end
 
   def create
+    # authorize @job
     @job = Job.new(job_params)
+    @job.employer = current_user
     if @job.save
       redirect_to job_path(@job)
     else
