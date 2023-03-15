@@ -1,8 +1,19 @@
-<h2>Post a new job</h2>
+<div class="container">
+  <div class="form-page-container">
+    <div class="form-header-content">
+      <%= link_to "FONY logo", root_path %>
+      <h2 class="fs-2 fw-bold">Tell us what you need done</h2>
+      <p>Contact skilled freelancers within minutes. View profiles, ratings, portfolios and chat with them. Pay the freelancer only when you are 100% satisfied with their work.</p>
+    </div>
 
-<%= simple_form_for @job do |f| %>
-  <%= f.input :title, label: "What's the title of your job?", error: 'A job title is mandatory, please specify one' %>
-  <%= f.input :description, label: 'Tell us more about your job.', error: 'A job description is mandatory, please specify one' %>
-  <%= f.input :budget, label: 'How much are you willing to pay?' %>
-  <%= f.button :submit %>
-<% end %>
+
+    <div class="form-container fs-5 fw-semibold">
+      <%= simple_form_for @job do |f| %>
+        <%= f.input :title, label: "Choose a name for your project", error: 'A job title is mandatory, please specify one' %>
+        <%= f.input :description, label: 'Tell us more about your project', error: 'A job description is mandatory, please specify one' %>
+        <%= f.input :budget, label: 'How much are you willing to pay?' %>
+        <%= f.submit 'Post my project', class: "btn btn-default btn-primary"%>
+      <% end %>
+    </div>
+  </div>
+</div>
