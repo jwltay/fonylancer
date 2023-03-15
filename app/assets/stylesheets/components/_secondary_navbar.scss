@@ -1,3 +1,24 @@
+// // Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) {
+//   .sec-navbar {
+//     width: 100%;
+//   }
+// }
+
+// // Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) {
+//   .sec-navbar {
+//     grid-template-columns: 1fr 1fr;
+//   }
+// }
+
+// // Large devices (desktops, 992px and up)
+// @media (min-width: 992px) {
+//   .sec-navbar {
+//     grid-template-columns: 1fr 1fr 1fr;
+//   }
+// }
+
 .sec-navbar {
   background: rgb(14,23,36);
   color: white;
@@ -6,6 +27,8 @@
   justify-content: start;
   align-items: center;
   position: relative;
+  min-width:max-content;
+  flex-wrap: nowrap;
 }
 
 .sec-navbar .btn {
@@ -21,8 +44,9 @@
 
 .job-link-card {
   position: absolute;
-  top: 54px;
-  left: 10px;
+  top: 100%;
+  left: 0;
+  transform: translate(80px, 5px);
   z-index: 1;
   display: none;
   width: 200px;
@@ -35,8 +59,9 @@
 
 .freelancer-link-card {
   position: absolute;
-  top: 54px;
-  left: 120px;
+  top: 100%;
+  left: 0;
+  transform: translate(200px, 5px);
   z-index: 1;
   display: none;
   width: 200px;
@@ -49,8 +74,9 @@
 
 .idea-link-card {
   position: absolute;
-  top: 54px;
-  left: 240px;
+  top: 100%;
+  left: 0;
+  transform: translate(330px, 5px);
   z-index: 1;
   display: none;
   width: 200px;
@@ -63,8 +89,9 @@
 
 .about-link-card {
   position: absolute;
-  top: 54px;
-  left: 310px;
+  top: 100%;
+  left: 0;
+  transform: translate(430px, 5px);
   z-index: 1;
   display: none;
   width: 200px;
@@ -77,8 +104,9 @@
 
 .resource-link-card {
   position: absolute;
-  top: 54px;
-  left: 410px;
+  top: 100%;
+  left: 0;
+  transform: translate(510px, 5px);
   z-index: 1;
   display: none;
   width: 200px;
