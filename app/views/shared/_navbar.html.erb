@@ -1,21 +1,20 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+  <div class="container container-fluid">
+    <%= link_to "/", class: "navbar-brand" do %>
       <%= image_tag "freelancerlogo.png" %>
     <% end %>
     <% if user_signed_in? %>
-      <li class="nav-item active">
-        <%= link_to "Home", "#", class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Browse", jobs_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Manage", "#", class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Groups", "#", class: "nav-link" %>
-      </li>
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <%= link_to "Browse", jobs_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Manage", "#", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Groups", "#", class: "nav-link" %>
+        </li>
+      </ul>
     <% else %>
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
@@ -36,27 +35,28 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
+            <%= link_to "Notifications", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
             <%= link_to "Messages", "#", class: "nav-link" %>
           </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://source.unsplash.com/random", class: "avatar-square dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <li class="nav-item dropdown pe-3 border-right border-dark">
+            <%= image_tag "https://source.unsplash.com/random", class: "avatar-square dropdown-toggle mx-2", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "View profile", freelancer_path(current_user), class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
-
-          <li class="nav-item">
+          <li class="nav-item me-2">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item me-5">
             <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>
-      <a class="btn btn-danger text-white" href="#">Post a Project</a>
+      <%= link_to "Post a Project", new_job_path, class: "btn btn-danger text-white" %>
     </div>
   </div>
 </div>
