@@ -1,21 +1,25 @@
-<div class="container">
-  <div class="form-page-container">
-    <div class="form-header-content">
-      <%= link_to "FONY logo", root_path %>
-      <h2 class="fs-2 fw-bold">Tell us what you need done</h2>
+<div class="background">
+  <div class="banner-background">
+    <div class="contents mx-auto">
+      <%= link_to image_tag('freelancer-logo-old-light.svg', :class => "logo"), root_path %>
+      <h2 class="fs-2 fw-bold my-4">Tell us what you need done</h2>
       <p>Contact skilled freelancers within minutes. View profiles, ratings, portfolios and chat with them. Pay the freelancer only when you are 100% satisfied with their work.</p>
     </div>
+  </div>
 
-
-    <div class="form-container fs-5 fw-semibold">
-      <%= simple_form_for @job do |f| %>
-        <%= f.input :title, label: "Choose a name for your project", error: 'A job title is mandatory, please specify one' %>
-        <%= f.input :description, label: 'Tell us more about your project', error: 'A job description is mandatory, please specify one' %>
-        <%= f.input :budget, label: 'How much are you willing to pay?' %>
-        <%= f.input :start_date, as: :date, label: 'When would the project start?' %>
-        <%= f.input :end_date, as: :date, label: 'When would the project end?' %>
-        <%= f.submit 'Post my project', class: "btn btn-default btn-primary"%>
-      <% end %>
+  <div class="container form-job">
+      <div class="form-container fs-5 fw-semibold">
+        <%= simple_form_for @job do |f| %>
+          <div class="form-inputs">
+            <%= f.input :title, label: "Choose a name for your project", error: 'A job title is mandatory, please specify one', class: "input-field" %>
+            <%= f.input :description, label: 'Tell us more about your project', error: 'A job description is mandatory, please specify one' %>
+            <%= f.input :budget, label: 'How much are you willing to pay?' %>
+            <%= f.input :start_date, as: :date, label: 'When would the project start?' %>
+            <%= f.input :end_date, as: :date, label: 'When would the project end?' %>
+          </div>
+          <%= f.submit 'Post my project', class: "btn btn-default btn-primary"%>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

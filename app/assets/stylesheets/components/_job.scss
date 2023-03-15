@@ -1,16 +1,42 @@
 // Remove navbar
-.container {
+
+.background {
+  background-color: white;
+  padding-bottom: 100px;
+  top: 0;
+}
+
+.logo {
+  height: 32px;
+}
+
+.banner-background {
   background: linear-gradient(55deg, #0e1724, #164188);
-}
-
-.form-page-container {
-  margin: 0 auto;
+  height: 500px;
   width: 100%;
-  box-sizing: border-box;
+  .contents {
+    padding-top: 50px;
+    width: 850px;
+    color: white;
+  }
 }
 
-.form-header-content {
+.form-inputs {
+  input,
+  textarea,
+  select {
+    background-color: white !important;
+    &:hover,
+    &:focus {
+      border-color: blue !important;
+    }
+  }
 }
 
-.form-container {
+.form-job {
+  background-color: white;
+  width: 850px;
+  padding: 20px;
+  margin-top: -240px;
+  border: 1px solid lightgrey;
 }
