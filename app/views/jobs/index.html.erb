@@ -10,30 +10,30 @@
     </div>
     <div class="col-12">
       <div class="freelancer-wrapper">
-        <div class="d-flex justify-content-between">
-          <p><span class="d-block pt-2 px-2"><%= @jobs.count %> jobs found, pricing in USD</span></p>
-          <%= will_paginate @jobs %>
-          <p>Showing
-            <%= @jobs.count %>
-            results</p>
-        </div>
-        <% @jobs.each do |job| %>
-          <div class="freelancer-card d-flex pt-3">
-            <div class="job-details">
-              <%= link_to job_path(job), class:"text-decoration-none" do %>
-                <%= job.title %>
-              <% end %>
-              <p><%= job.description %></p>
-              <p><%= job.budget %></p>
-              <p><%= job.employer.username %></p>
-              <p><%= job.employer.name %></p>
-              <button type="button" class="btn btn-success">Bid now</button>
-            </div>
-          </div>
-        <% end %>
+        <%= select_tag(:city, options_for_select(['Newest first', 'Lowest budget first', 'highest budget first'], 'Newest first')) %>
+        <p><span class="d-block pt-2 px-2"><%= @jobs.count %> jobs found, pricing in USD</span></p>
+        <%= will_paginate @jobs %>
+        <p>Showing
+          <%= @jobs.count %>
+          results</p>
       </div>
+      <% @jobs.each do |job| %>
+        <div class="freelancer-card d-flex pt-3">
+          <div class="job-details">
+            <%= link_to job_path(job), class:"text-decoration-none" do %>
+              <%= job.title %>
+            <% end %>
+            <p><%= job.description %></p>
+            <p><%= job.budget %></p>
+            <p><%= job.employer.username %></p>
+            <p><%= job.employer.name %></p>
+            <button type="button" class="btn btn-success">Bid now</button>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
+</div>
 </div>
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
