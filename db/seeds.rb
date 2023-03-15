@@ -12,7 +12,7 @@
     username: Faker::Internet.username,
     name: Faker::Name.name,
     email: Faker::Internet.email,
-    password: Faker::Internet.password,
+    password: "password",
     description: Faker::Quote.famous_last_words,
     location: Faker::Address.full_address,
     tagline: Faker::Marketing.buzzwords,
