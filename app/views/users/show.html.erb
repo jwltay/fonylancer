@@ -102,7 +102,7 @@
           <ul class="list-unstyled pe-0">
             <% @user.open_projects.each do |bid| %>
               <li>
-                <%= link_to bid.job.title, job_path(bid.job), class: "btn btn-outline-secondary rounded-pill", type: "button" %>
+                <%= link_to bid.job.title, edit_job_path(bid.job), class: "btn btn-outline-secondary rounded-pill", type: "button" %>
               </li>
             <% end %>
           </ul>
