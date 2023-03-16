@@ -13,4 +13,13 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   attribute :want_to_work, default: true
+
+  def country_code
+    location.split(", ")[2]
+  end
+
+  def country
+    @country_code = location.split(", ")[2]
+    JSON.parse(URI.open("https://restcountries.com/v3.1/alpha/#{@country_code}").read)[0]["name"]["common"]
+  end
 end
