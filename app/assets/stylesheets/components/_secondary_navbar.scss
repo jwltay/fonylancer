@@ -45,93 +45,143 @@
   position: absolute;
   top: 100%;
   left: 0;
-  transform: translate(80px, 5px);
+  transform: translate(80px, 0px);
   z-index: 1;
   display: none;
-  width: 200px;
+  width: max-content;
   padding: 10px;
-  background-color: #f1f1f1;
+  background-color: #ffffff;
   border: 1px solid #ccc;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   color: black;
+}
+
+.job-link-card a {
+  text-decoration: none;
+  display: block;
+  color: black;
+}
+
+.job-link-card a:hover {
+  color: blue;
 }
 
 .freelancer-link-card {
   position: absolute;
   top: 100%;
   left: 0;
-  transform: translate(200px, 5px);
+  transform: translate(175px, 0px);
   z-index: 1;
   display: none;
-  width: 200px;
+  width: max-content;
   padding: 10px;
-  background-color: #f1f1f1;
+  background-color: #ffffff;
   border: 1px solid #ccc;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   color: black;
+}
+
+.freelancer-link-card a {
+  text-decoration: none;
+  display: block;
+  color: black;
+}
+
+.freelancer-link-card a:hover {
+  color: blue;
 }
 
 .idea-link-card {
   position: absolute;
   top: 100%;
   left: 0;
-  transform: translate(330px, 5px);
+  transform: translate(310px, 0px);
   z-index: 1;
   display: none;
-  width: 200px;
+  width: max-content;
   padding: 10px;
-  background-color: #f1f1f1;
+  background-color: #ffffff;
   border: 1px solid #ccc;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   color: black;
+}
+
+.idea-link-card a {
+  text-decoration: none;
+  display: block;
+  color: black;
+}
+
+.idea-link-card a:hover {
+  color: blue;
 }
 
 .about-link-card {
   position: absolute;
   top: 100%;
   left: 0;
-  transform: translate(430px, 5px);
+  transform: translate(405px, 0px);
   z-index: 1;
   display: none;
-  width: 200px;
+  width: max-content;
   padding: 10px;
-  background-color: #f1f1f1;
+  background-color: #ffffff;
   border: 1px solid #ccc;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   color: black;
+}
+
+.about-link-card a {
+  text-decoration: none;
+  display: block;
+  color: black;
+}
+
+.about-link-card a:hover {
+  color: blue;
 }
 
 .resource-link-card {
   position: absolute;
   top: 100%;
   left: 0;
-  transform: translate(510px, 5px);
+  transform: translate(480px, 0px);
   z-index: 1;
   display: none;
-  width: 200px;
+  width: max-content;
   padding: 10px;
-  background-color: #f1f1f1;
+  background-color: #ffffff;
   border: 1px solid #ccc;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   color: black;
 }
 
-.job:hover + .job-link-card {
+.resource-link-card a {
+  text-decoration: none;
+  display: block;
+  color: black;
+}
+
+.resource-link-card a:hover {
+  color: blue;
+}
+
+.job:hover + .job-link-card, .job-link-card:hover {
   display: block;
 }
 
-.freelancer:hover + .freelancer-link-card {
+.freelancer:hover + .freelancer-link-card, .freelancer-link-card:hover {
   display: block;
 }
 
-.idea:hover + .idea-link-card {
+.idea:hover + .idea-link-card, .idea-link-card:hover {
   display: block;
 }
 
-.about:hover + .about-link-card {
+.about:hover + .about-link-card, .about-link-card:hover {
   display: block;
 }
 
-.resource:hover + .resource-link-card {
+.resource:hover + .resource-link-card, .resource-link-card:hover {
   display: block;
 }

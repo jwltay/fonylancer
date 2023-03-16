@@ -15,11 +15,16 @@ class BidsController < ApplicationController
   end
 
   def create
-    bid = Bid.new(job: @job, freelancer: current_user, rate: bid_params[:rate])
-    if bid.save
+    @bid = Bid.new(bid_params)
+    @bid.job = @job
+    @bid.freelancer = current_user
+    current_user.update(user_params)
+
+    if @bid.save
+      flash[:notice] = "Bid submitted successfully!"
       redirect_to job_path(@job)
     else
-      render :new, status: :unprocessable_entity
+      render 'jobs/show', status: :unprocessable_entity
     end
   end
 
@@ -32,6 +37,10 @@ class BidsController < ApplicationController
   end
 
   private
+
+  def user_params
+    params.require(:user).permit(:name, :tagline, :description)
+  end
 
   def bid_params
     params.require(:bid).permit(:rate)
