@@ -10,8 +10,10 @@
     </div>
     <div class="col-12">
       <div class="freelancer-wrapper">
-        <%= select_tag(:city, options_for_select(['Newest first', 'Lowest budget first', 'highest budget first'], 'Newest first')) %>
-        <p><span class="d-block pt-2 px-2"><%= @jobs.count %> jobs found, pricing in USD</span></p>
+        <div>
+          <%= select_tag(:city, options_for_select(['Newest first', 'Lowest budget first', 'highest budget first'], 'Newest first')) %>
+        </div>
+        <p><span class="d-block pt-1 px-2"><%= @jobs.count %> jobs found, pricing in USD</span></p>
         <%= will_paginate @jobs %>
         <p>Showing
           <%= @jobs.count %>
@@ -27,12 +29,13 @@
             <p><%= job.budget %></p>
             <p><%= job.employer.username %></p>
             <p><%= job.employer.name %></p>
-            <button type="button" class="btn btn-success">Bid now</button>
+            <%= link_to "Bid now", new_job_path, class: "btn btn-flat" %>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
+</div>
 </div>
 </div>
 <div class="container py-5">
