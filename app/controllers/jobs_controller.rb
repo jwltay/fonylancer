@@ -42,6 +42,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     authorize @job
     @job.update!(job_params)
+    redirect to freelancer_path(current_user)
   end
 
   private

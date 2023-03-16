@@ -1,7 +1,7 @@
 <h2>Mark Job as complete</h2>
 
 <%= simple_form_for(@job) do |f| %>
-  <%= f.check_box :complete %>
-  <%= f.input :photo, as: :file %>
+  <%= f.input :complete, as: :boolean, label: "Job complete?" %>
+  <%= f.input :photo, as: :file, label: 'Upload a photo' %>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>
