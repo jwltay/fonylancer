@@ -5,11 +5,14 @@
 </div>
 
 <div class="container">
-  <p><%= @job.description %></p>
-  <p><%= @job.budget %></p>
-  <p><%= @job.employer.username %></p>
-  <p><%= @job.employer.name %></p>
-  <p><%= @job.start_date %></p>
-  <p><%= @job.end_date %></p>
-  <p><%= @job.created_at %></p>
+  <div class="white-box">
+    <h3 class="border-bottom py-3">Project Details</h3>
+    <p><%= @job.description %></p>
+    <p><%= @job.budget %></p>
+    <p><%= @job.employer.username %></p>
+    <p><%= @job.employer.name %></p>
+    <p><%= @job.start_date %></p>
+    <p><%= @job.end_date %></p>
+    <p><%= @job.created_at %></p>
+  </div>
 </div>
