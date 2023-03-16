@@ -7,6 +7,7 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    @bid = Bid.new
     @country_code = @job.employer.location.split(", ")[2]
     @country = JSON.parse(URI.open("https://restcountries.com/v3.1/alpha/#{@country_code}").read)[0]["name"]["common"]
     authorize @job
@@ -36,5 +37,4 @@ class JobsController < ApplicationController
   def job_params
     params.require(:job).permit(:title, :description, :budget, :start_date, :end_date)
   end
-
 end

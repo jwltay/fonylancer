@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require 'open-uri'
 
 # seeds users
 20.times do
@@ -42,4 +43,16 @@ Job.all.each do |job|
       job_id: job.id
     )
   end
+end
+
+User.all.each do |user|
+  file = URI.open("https://source.unsplash.com/random")
+  user.photo.attach(io: file, filename: "photo#{rand(1..100)}", content_type: "image/jpg")
+  user.save
+end
+
+Job.all.each do |job|
+  file = URI.open("https://source.unsplash.com/random")
+  job.photo.attach(io: file, filename: "photo#{rand(1..100)}", content_type: "image/jpg")
+  job.save
 end
