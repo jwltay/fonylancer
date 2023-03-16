@@ -7,93 +7,106 @@
         <img src="<%= cl_image_path @user.photo.key %>" alt="avatar" class="rounded me-3" style="width: 50px; height: 50px; object-fit: cover;">
           <h4 class="fs-sm"><%= @user.name %></h4>
         </div>
+        <% unless current_user == @user %>
         <a href="#" class="btn btn-primary me-2">Request quote</a>
-      </div>
+      <% end %>
     </div>
   </div>
+</div>
 
 
-  <div class="container">
+<div class="container">
 
-    <div class="white-box d-flex justify-content-between">
-      <div class="d-flex flex-column">
-        <img src="<%= cl_image_path @user.photo.key %>" alt="avatar" class="rounded me-2 mb-2" style="width: 250px; height: 250px; object-fit: cover;">
+  <div class="white-box d-flex justify-content-between">
+    <div class="d-flex flex-column">
+      <img src="<%= cl_image_path @user.photo.key %>" alt="avatar" class="rounded me-2 mb-2" style="width: 250px; height: 250px; object-fit: cover;">
+        <div class="row">
+          <div class="col-1">
+            <img class="mb-1" src="https://www.countryflagicons.com/FLAT/16/<%= @user.country_code %>.png"></div>
+            <div class="col-9">
+              <p>
+                <%= @user.location.split(",")[1] %>,
+                <%= @user.country %>
+              </p>
+            </div>
+          </div>
           <div class="row">
             <div class="col-1">
-              <img class="mb-1" src="https://www.countryflagicons.com/FLAT/16/<%= @user.country_code %>.png"></div>
-              <div class="col-9">
-                <p>
-                  <%= @user.location.split(",")[1] %>,
-                  <%= @user.country %>
-                </p>
-              </div>
+              <i class="fa-solid fa-shield-halved"></i>
             </div>
-            <div class="row">
-              <div class="col-1">
-                <i class="fa-solid fa-shield-halved"></i>
-              </div>
-              <div class="col-9">
-                <p><%= @user.created_at.strftime("Joined %B %d, %Y") %></p>
-              </div>
+            <div class="col-9">
+              <p><%= @user.created_at.strftime("Joined %B %d, %Y") %></p>
             </div>
-            <div class="row">
-              <div class="col-1">
-                <i class="fa-solid fa-thumbs-up"></i>
-              </div>
-              <div class="col-9">
-                <p><%= rand(1..200) %>
-                  Recommendations</p>
-              </div>
-
+          </div>
+          <div class="row">
+            <div class="col-1">
+              <i class="fa-solid fa-thumbs-up"></i>
             </div>
-
+            <div class="col-9">
+              <p><%= rand(1..200) %>
+                Recommendations</p>
+            </div>
 
           </div>
-          <div class="flex-grow-1 ms-2">
-            <div class="d-flex justify-content-between align-items-center">
-              <h2>
-                <strong><%= @user.name %></strong>
-                @<%= @user.username %>
-              </h2>
-              <a href="#" class="btn btn-primary">Edit profile</a>
-            </div>
-            <p class="font-weight-light fs-5 text-secondary"><%= @user.tagline %></p>
-            <div class="my-1 row">
-              <p class="col-6 fs-6">
-                <strong class="text-success"><%= rand(90..100) %>%</strong>
-                Jobs Completed
-              </p>
-              <p class="col-6 fs-6">
-                <strong class="text-success"><%= rand(90..100) %>%</strong>
-                On Budget
-              </p>
-            </div>
-            <div class="row my-1">
-              <p class="col-6 fs-6">
-                <strong class="text-success"><%= rand(90..100) %>%</strong>
-                On Time
-              </p>
-              <p class="col-6 fs-6">
-                <strong class=" text-success"><%= rand(10..20) %>%</strong>
-                Repeat Hire
-              </p>
-            </div>
-            <p><%= @user.description %></p>
-          </div>
+
+
         </div>
-
-        <div class="white-box">
-          <h3 class="border-bottom py-3">Portfolio Items</h3>
-          <ul class="list-unstyled">
-            <div class="cards">
-              <% @successful_bids.each do |bid| %>
-                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path bid.job.photo.key %>')">
-                  <li><%= link_to bid.job.title, "#", class:"text-decoration-none text-white" %></li>
-                </div>
-              <% end %>
-            </div>
-          </ul>
+        <div class="flex-grow-1 ms-2">
+          <div class="d-flex justify-content-between align-items-center">
+            <h2 class="fw-light">
+              <strong><%= @user.name %></strong>
+              @<%= @user.username %>
+            </h2>
+            <% if current_user == @user %>
+              <a href="#" class="btn btn-primary">Edit profile</a>
+            <% end %>
+          </div>
+          <p class="font-weight-light fs-5 text-secondary"><%= @user.tagline %></p>
+          <p>
+            <i class="fa-solid fa-star text-danger"></i>
+            <i class="fa-solid fa-star text-danger"></i>
+            <i class="fa-solid fa-star text-danger"></i>
+            <i class="fa-solid fa-star text-danger"></i>
+            <i class="fa-solid fa-star text-danger"></i>
+            5.0 (<%= rand(1..20) %>
+            reviews)
+          </p>
+          <div class="my-1 row">
+            <p class="col-6 fs-6">
+              <strong class="text-success"><%= rand(90..100) %>%</strong>
+              Jobs Completed
+            </p>
+            <p class="col-6 fs-6">
+              <strong class="text-success"><%= rand(90..100) %>%</strong>
+              On Budget
+            </p>
+          </div>
+          <div class="row my-1">
+            <p class="col-6 fs-6">
+              <strong class="text-success"><%= rand(90..100) %>%</strong>
+              On Time
+            </p>
+            <p class="col-6 fs-6">
+              <strong class=" text-success"><%= rand(10..20) %>%</strong>
+              Repeat Hire
+            </p>
+          </div>
+          <p><%= @user.description %></p>
         </div>
       </div>
 
+      <div class="white-box">
+        <h3 class="border-bottom py-3">Portfolio Items</h3>
+        <ul class="list-unstyled">
+          <div class="cards">
+            <% @successful_bids.each do |bid| %>
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path bid.job.photo.key %>')">
+                <li><%= link_to bid.job.title, "#", class:"text-decoration-none text-white" %></li>
+              </div>
+            <% end %>
+          </div>
+        </ul>
+      </div>
     </div>
+
+  </div>
