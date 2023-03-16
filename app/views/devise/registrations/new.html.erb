@@ -11,6 +11,11 @@
         <%= f.input :name,
                     required: true,
                     autofocus: true %>
+        <%# request a specific format for input %>
+        <%= f.input :location,
+                    required: true,
+                    autofocus: true,
+                    placeholder: "14 Kampong Arang Rd, Singapore 431014"%>
         <%= f.input :email,
                     required: true,
                     autofocus: true,
