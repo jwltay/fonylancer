@@ -86,26 +86,25 @@
   <div class="row">
     <div class="col-9">
       <div class="white-box">
-        <div class="freelancer-card d-flex pt-3">
-          <%= image_tag "https://source.unsplash.com/random" %>
-          <div class="container">
-            <% if user_signed_in? %>
-              <h3 class="mt-2 mb-2" id="header-font">
-                <div class="container">
-                  <% if user_signed_in? %>
-                  <% end %></h3>
-                <h3 id="header-font"> Attending</h3>
-              <% end %>
-              <% @bids.each do |bid| %>
-                <div class="white-box">
+        <div class="container">
+          <% if user_signed_in? %>
+            <h3 class="mt-2 mb-2" id="header-font">
+              <div class="container">
+                <% if user_signed_in? %>
+                <% end %></h3>
+            <% end %>
+            <% @bids.each do |bid| %>
+              <div class="white-box">
+                <%= image_tag "https://source.unsplash.com/random", class: "image_tag" %>
+                <div>
                   <p><%= bid.freelancer.username %></p>
                   <p><%= bid.rate %></p>
                   <p><%= bid.accepted %></p>
                   <p><%= bid.freelancer_id %></p>
                   <p><%= bid.job_id %></p>
                 </div>
-              <% end %>
-            </div>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
