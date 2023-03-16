@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @successful_closed_bids = @user.completed_projects
     authorize @user
   end
 end
