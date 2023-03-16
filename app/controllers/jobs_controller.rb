@@ -32,9 +32,18 @@ class JobsController < ApplicationController
     end
   end
 
+  def edit
+    @job = Job.find(params[:id])
+  end
+
+  def update
+    @job = Job.find(params[:id])
+    @job.update!(job_params)
+  end
+
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :budget, :start_date, :end_date)
+    params.require(:job).permit(:title, :description, :budget, :start_date, :end_date, :complete)
   end
 end

@@ -99,26 +99,28 @@
       <% if current_user == @user %>
         <div class="white-box">
           <h3 class="border-bottom py-3 mb-3">In Progress</h3>
-          <ul class="list-unstyled">
+          <ul class="list-unstyled pe-0">
             <% @user.open_projects.each do |bid| %>
-              <input class="btn btn-outline-secondary rounded-pill" type="button" value="<%= bid.job.title %>"></li>
-            <% end %>
+              <li>
+                <input class="btn btn-outline-secondary rounded-pill" type="button" value="<%= bid.job.title %>"></li>
+                <%# link_to bid.job.title %>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="white-box">
+          <h3 class="border-bottom py-3 mb-3">Portfolio Items</h3>
+          <ul class="list-unstyled">
+            <div class="cards">
+              <% @user.completed_projects.each do |bid| %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path bid.job.photo.key %>')">
+                  <li><%= link_to bid.job.title, "#", class:"text-decoration-none text-white" %></li>
+                </div>
+              <% end %>
+            </div>
           </ul>
         </div>
-      <% end %>
-
-      <div class="white-box">
-        <h3 class="border-bottom py-3 mb-3">Portfolio Items</h3>
-        <ul class="list-unstyled">
-          <div class="cards">
-            <% @user.completed_projects.each do |bid| %>
-              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path bid.job.photo.key %>')">
-                <li><%= link_to bid.job.title, "#", class:"text-decoration-none text-white" %></li>
-              </div>
-            <% end %>
-          </div>
-        </ul>
       </div>
-    </div>
 
-  </div>
+    </div>
