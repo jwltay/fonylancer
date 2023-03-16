@@ -50,3 +50,9 @@ User.each do |user|
   user.photo.attach(io: file, filename: "photo#{rand(1..100)}", content_type: "image/jpg")
   article.save
 end
+
+Job.each do |job|
+  file = URI.open("https://source.unsplash.com/random")
+  job.photo.attach(io: file, filename: "photo#{rand(1..100)}", content_type: "image/jpg")
+  article.save
+end
