@@ -62,7 +62,7 @@
         <ul class="list-unstyled">
           <div class="cards">
             <% @successful_bids.each do |bid| %>
-              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @article.photo.key %>')">
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path bid.job.photo.key %>')">
                 <li><%= link_to bid.job.title, "#", class:"text-decoration-none text-white" %></li>
               </div>
             <% end %>
