@@ -109,15 +109,19 @@
                       <%= rand(1..20) %>
                     </p>
                   </div>
-                  <p><%= bid.freelancer.username %></p>
-                  <p><%= bid.rate %></p>
-                  <p><%= bid.accepted %></p>
-                  <p><%= bid.freelancer_id %></p>
-                  <p><%= bid.job_id %></p>
+                  <div class="row">
+                    <div class="col-1">
+                      <i class="fa-solid fa-user"></i>
+                    </div>
+                    <p><%= bid.freelancer.username %></p>
+                    <p><%= bid.rate %></p>
+                    <p><%= bid.accepted %></p>
+                    <p><%= bid.freelancer_id %></p>
+                    <p><%= bid.job_id %></p>
+                  </div>
                 </div>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
