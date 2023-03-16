@@ -1,3 +1,4 @@
+<%= render "shared/secondary_navbar" %>
 <div class="container mt-2">
   <div class="row">
     <div class="col-lg-12 col-sm-12">
@@ -8,7 +9,7 @@
           results</p>
         <% @freelancers.each do |freelancer| %>
           <div class="freelancer-card d-flex pt-3">
-            <%= image_tag "https://source.unsplash.com/random" %>
+            <%= image_tag cl_image_path freelancer.photo.key %>
             <div class="freelancer-details">
               <div class="freelancer-header d-flex justify-content-between">
                 <h3><%= link_to freelancer.username, freelancer_path(freelancer) %></h3>
