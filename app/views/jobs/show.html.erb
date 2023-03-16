@@ -1,6 +1,9 @@
 <div class="black-header">
   <div class="container">
-    <h2><%= @job.title %></h2>
+    <div class="d-flex align-items-center justify-content-between">
+      <h2><%= @job.title %></h2>
+      <p class="fw-bold">Open</p>
+    </div>
   </div>
 </div>
 
@@ -16,7 +19,7 @@
         <p class="mt-4"><%= @job.description %></p>
         <h5 class="mt-5 mb-3">Skills Required</h5>
         <ul class="list-inline">
-          <li class="list-inline-item">
+          <li class="list-inline-item mx-0">
             <input class="btn btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
             <input class="btn btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
             <input class="btn btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
