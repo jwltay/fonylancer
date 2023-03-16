@@ -39,9 +39,10 @@ class JobsController < ApplicationController
   end
 
   def update
+    authenticate_user!
     @job = Job.find(params[:id])
-    authorize @job
     @job.update!(job_params)
+    authorize @job
     redirect to freelancer_path(current_user)
   end
 
