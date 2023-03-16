@@ -1,13 +1,9 @@
-class JobPolicy < ApplicationPolicy
+class UserPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
-      scope.all
+      scope.where(want_to_work: true)
     end
-  end
-
-  def create?
-    record.employer == user
   end
 
   def show?
