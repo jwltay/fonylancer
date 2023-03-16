@@ -33,14 +33,14 @@ class JobsController < ApplicationController
   end
 
   def edit
-    @authenticate_user!
+    authenticate_user!
     @job = Job.find(params[:id])
-    @authorize @job
+    authorize @job
   end
 
   def update
     @job = Job.find(params[:id])
-    @authorize @job
+    authorize @job
     @job.update!(job_params)
   end
 
