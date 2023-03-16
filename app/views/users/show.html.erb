@@ -5,7 +5,11 @@
   <div class="container">
     <div class="d-flex justify-content-between align-items-center">
       <div class="profile-bar-content">
-        <img src="<%= cl_image_path @user.photo.key %>" alt="avatar" class="rounded me-3" style="width: 50px; height: 50px; object-fit: cover;">
+        <% if @user.photo.blob %>
+          <img src="<%= cl_image_path @user.photo.key %>" alt="avatar" class="rounded me-3" style="width: 50px; height: 50px; object-fit: cover;">
+          <% else %>
+            <%= image_tag("default_avatar.png", class: "rounded me-3", style: "width: 50px; height: 50px; object-fit: cover;") %>
+          <% end %>
           <h4 class="fs-sm"><%= @user.name %></h4>
         </div>
         <% unless current_user == @user %>
@@ -14,13 +18,15 @@
     </div>
   </div>
 </div>
-
-
 <div class="container">
 
   <div class="white-box d-flex justify-content-between">
     <div class="d-flex flex-column">
-      <img src="<%= cl_image_path @user.photo.key %>" alt="avatar" class="rounded me-2 mb-2" style="width: 250px; height: 250px; object-fit: cover;">
+      <% if @user.photo.blob %>
+        <img src="<%= cl_image_path @user.photo.key %>" alt="avatar" class="rounded me-2 mb-2" style="width: 250px; height: 250px; object-fit: cover;">
+        <% else %>
+          <%= image_tag("default_avatar.png", class: "rounded me-2 mb-2", style: "width: 250px; height: 250px; object-fit: cover;") %>
+        <% end %>
         <div class="row">
           <div class="col-1">
             <img class="mb-1" src="https://www.countryflagicons.com/FLAT/16/<%= @user.country_code %>.png"></div>
@@ -110,5 +116,4 @@
         </ul>
       </div>
     </div>
-
   </div>
