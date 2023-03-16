@@ -15,7 +15,6 @@
   </div>
 </div>
 
-
 <div class="container">
 
   <div class="white-box d-flex justify-content-between">
@@ -101,7 +100,7 @@
         <h3 class="border-bottom py-3">Portfolio Items</h3>
         <ul class="list-unstyled">
           <div class="cards">
-            <% @successful_bids.each do |bid| %>
+            <% @successful_closed_bids.each do |bid| %>
               <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path bid.job.photo.key %>')">
                 <li><%= link_to bid.job.title, "#", class:"text-decoration-none text-white" %></li>
               </div>

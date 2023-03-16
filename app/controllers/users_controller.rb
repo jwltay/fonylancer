@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @successful_bids = Bid.where(freelancer: @user, accepted: true)
+    @successful_closed_bids = Bid.where(freelancer: @user, accepted: true)
     authorize @user
   end
 end
