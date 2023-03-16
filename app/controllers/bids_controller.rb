@@ -15,17 +15,10 @@ class BidsController < ApplicationController
   end
 
   def create
-    # TODO: make params into strong params
-    @bid = Bid.new(job: @job, freelancer: current_user, rate: params['bid']['rate'])
-
-    user = current_user
-    user.name = params['user']['name']
-    user.tagline = params['user']['tagline']
-    user.description = params['user']['description']
-    user.save!
-
-    # TODO: make params into strong params user_params
-    user.update_attributes(params['user'])
+    @bid = Bid.new(bid_params)
+    @bid.job = @job
+    @bid.freelancer = current_user
+    current_user.update(user_params)
 
     if @bid.save
       flash[:notice] = "Bid submitted successfully!"
@@ -44,6 +37,10 @@ class BidsController < ApplicationController
   end
 
   private
+
+  def user_params
+    params.require(:user).permit(:name, :tagline, :description)
+  end
 
   def bid_params
     params.require(:bid).permit(:rate)
