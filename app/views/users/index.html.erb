@@ -9,23 +9,26 @@
           results</p>
         <% @freelancers.each do |freelancer| %>
           <div class="freelancer-card d-flex pt-3">
-            <%= image_tag cl_image_path freelancer.photo.key %>
-            <div class="freelancer-details">
-              <div class="freelancer-header d-flex justify-content-between">
-                <h3><%= link_to freelancer.username, freelancer_path(freelancer) %></h3>
-                <%= link_to new_user_registration_path, class: "btn btn-primary" do %>
+            <%= link_to freelancer_path(freelancer) do %>
+              <div class="freelancer-card-photo">
+                <%= image_tag cl_image_path freelancer.photo.key %>
+              </div>
+              <div class="freelancer-card-details">
+                <div class="d-flex align-items-center">
+                  <h3><%= freelancer.name %></h3>
+                  <p class="mb-2 mx-2">@<%= freelancer.username %></p>
+                </div>
+                <p><%= freelancer.description %></p>
+              </div>
+            <% end %>
+            <div class="freelancer-card-rates">
+                <h3>$<%= rand(50..500) %> USD</h3>
+                <p>per hour</p>
+                <%= link_to new_user_registration_path, class: "btn btn-primary d-inline-block mt-auto p-2" do %>
                   <%= image_tag "small_bird.jpg", style: "height: 32px" %>
                   Hire me
                 <% end %>
               </div>
-              <p><%= freelancer.tagline %></p>
-              <% 5.times do |time| %>
-                <a href="#" class="category">
-                  <%= time == 4 ? Faker::Company.industry : "#{Faker::Company.industry}," %>
-                </a>
-              <% end %>
-              <p><%= freelancer.description %></p>
-            </div>
           </div>
         <% end %>
       </div>
