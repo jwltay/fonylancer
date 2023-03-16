@@ -14,7 +14,7 @@
     email: Faker::Internet.email,
     password: "password",
     description: Faker::Quote.famous_last_words,
-    location: "#{Faker::Address.street_address}, #{Faker::Address.city}, #{Faker::Address.country_by_code}",
+    location: "#{Faker::Address.street_address}, #{Faker::Address.city}, #{Faker::Address.country_code}",
     tagline: Faker::Marketing.buzzwords,
     want_to_work: rand(0..1) == 1
   )

@@ -10,7 +10,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @employer = @job.employer
     @country_code = @employer.location.split(", ")[2]
-    @country = JSON.parse(URI.open("https://restcountries.com/v3.1/alpha/nd").read)[0]["name"]["common"]
+    # @country = JSON.parse(URI.open("https://restcountries.com/v3.1/alpha/nd").read)[0]["name"]["common"]
   end
 
   def new
