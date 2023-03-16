@@ -7,3 +7,20 @@
 <p><%= @job.start_date %></p>
 <p><%= @job.end_date %></p>
 <p><%= @job.created_at %></p>
+
+<%# ============== COMPLETE YOUR PROFILE PARTIAL ============== %>
+
+
+<%# if current_user.want_to_work %>
+  <div class="container">
+    <p><%= current_user.name.split.first %></p>
+    <p><%= current_user.name.split.last %></p>
+    <p><%= current_user.tagline %></p>
+    <p><%= current_user.description %></p>
+    <%# Add bids.rate %>
+    <%= link_to "Bid now", root_path %>
+  </div>
+<%# end %>
+
+
+<%#= @bids %>

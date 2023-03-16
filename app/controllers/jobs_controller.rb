@@ -10,7 +10,6 @@ class JobsController < ApplicationController
   def new
     # authorize @job
     @job = Job.new
-    @job.employer = current_user
   end
 
   def create
