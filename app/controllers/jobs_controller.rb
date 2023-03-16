@@ -1,3 +1,6 @@
+require "open-uri"
+require "JSON"
+
 class JobsController < ApplicationController
   def index
     @jobs = Job.all.paginate(page: params[:page], per_page: 5)
@@ -5,6 +8,9 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    @employer = @job.employer
+    @country_code = @employer.location.split(", ")[2]
+    @country = JSON.parse(URI.open("https://restcountries.com/v3.1/alpha/nd").read)[0]["name"]["common"]
   end
 
   def new
