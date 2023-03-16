@@ -8,8 +8,7 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
-    @employer = @job.employer
-    @country_code = @employer.location.split(", ")[2]
+    @country_code = @job.employer.location.split(", ")[2]
     @country = JSON.parse(URI.open("https://restcountries.com/v3.1/alpha/#{@country_code}").read)[0]["name"]["common"]
   end
 
