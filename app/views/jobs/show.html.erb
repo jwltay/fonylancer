@@ -1,9 +1,15 @@
-<h2><%= @job.title %></h2>
+<div class="black-header">
+  <div class="container">
+    <h2><%= @job.title %></h2>
+  </div>
+</div>
 
-<p><%= @job.description %></p>
-<p><%= @job.budget %></p>
-<p><%= @job.employer.username %></p>
-<p><%= @job.employer.name %></p>
-<p><%= @job.start_date %></p>
-<p><%= @job.end_date %></p>
-<p><%= @job.created_at %></p>
+<div class="container">
+  <p><%= @job.description %></p>
+  <p><%= @job.budget %></p>
+  <p><%= @job.employer.username %></p>
+  <p><%= @job.employer.name %></p>
+  <p><%= @job.start_date %></p>
+  <p><%= @job.end_date %></p>
+  <p><%= @job.created_at %></p>
+</div>
