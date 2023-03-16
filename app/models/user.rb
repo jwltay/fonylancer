@@ -29,4 +29,10 @@ class User < ApplicationRecord
     sql = "bids.freelancer_id = #{id} AND bids.accepted = true AND jobs.complete = false"
     Bid.joins(:job).where(sql)
   end
+
+
+  def completed_projects
+    sql = "bids.freelancer_id = #{id} AND bids.accepted = true AND jobs.complete = true"
+    Bid.joins(:job).where(sql)
+  end
 end
