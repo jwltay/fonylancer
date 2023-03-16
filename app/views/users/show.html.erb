@@ -4,7 +4,7 @@
   <div class="container">
     <div class="d-flex justify-content-between align-items-center">
       <div class="profile-bar-content">
-        <img src="https://source.unsplash.com/random" alt="avatar" class="rounded me-3" style="width: 50px; height: 50px; object-fit: cover;">
+        <img src="<%= cl_image_path @user.photo.key %>" alt="avatar" class="rounded me-3" style="width: 50px; height: 50px; object-fit: cover;">
           <h4 class="fs-sm"><%= @user.name %></h4>
         </div>
         <a href="#" class="btn btn-primary me-2">Request quote</a>
@@ -17,7 +17,7 @@
 
     <div class="white-box d-flex justify-content-between">
       <div class="d-flex flex-column">
-        <img src="https://source.unsplash.com/random" alt="avatar" class="rounded me-2 mb-2" style="width: 250px; height: 250px; object-fit: cover;">
+        <img src="<%= cl_image_path @user.photo.key %>" alt="avatar" class="rounded me-2 mb-2" style="width: 250px; height: 250px; object-fit: cover;">
           <p><%= @user.location.split(",")[1] %></p>
           <p><%= rand(1..200) %>
             Recommendations</p>
@@ -62,7 +62,7 @@
         <ul class="list-unstyled">
           <div class="cards">
             <% @successful_bids.each do |bid| %>
-              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/180)">
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path bid.job.photo.key %>')">
                 <li><%= link_to bid.job.title, "#", class:"text-decoration-none text-white" %></li>
               </div>
             <% end %>
