@@ -2,85 +2,89 @@
   <div class="container">
     <div class="d-flex align-items-center justify-content-between">
       <h2><%= @job.title %></h2>
-      <p class="fw-bold">Open
-        <% if @job.bids%>
-        </p>
-      </div>
+      <p class="fw-bold">
+        <% if @job.open? %>
+          <%= "Open" %>
+        <% else %>
+          <%= "Closed" %>
+        <% end %>
+      </p>
     </div>
   </div>
+</div>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-9">
-        <div class="white-box">
-          <div class="d-flex justify-content-between align-items-center border-bottom py-3">
-            <h3 class="font-weight-bold">Project Details</h3>
-            <h5 class="font-weight-bold">$<%= @job.budget %>
-              USD</h5>
-          </div>
-          <p class="mt-4"><%= @job.description %></p>
-          <h5 class="mt-5 mb-3">Skills Required</h5>
-          <ul class="list-inline">
-            <li class="list-inline-item mx-0">
-              <input class="btn btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
-              <input class="btn btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
-              <input class="btn btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
-              <input class="btn btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
-              <input class="btn btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
-            </ul>
-
-            <p class="mt-5">Project ID:
-              <%= rand(34762..45734) %></p>
-
-          </div>
+<div class="container">
+  <div class="row">
+    <div class="col-9">
+      <div class="white-box">
+        <div class="d-flex justify-content-between align-items-center border-bottom py-3">
+          <h3 class="font-weight-bold">Project Details</h3>
+          <h5 class="font-weight-bold">$<%= @job.budget %>
+            USD</h5>
         </div>
-        <div class="col-3">
-          <div class="white-box">
-            <h5 class="border-bottom py-2">About the Client</h5>
+        <p class="mt-4"><%= @job.description %></p>
+        <h5 class="mt-5 mb-3">Skills Required</h5>
+        <ul class="list-inline">
+          <li class="list-inline-item mx-0">
+            <input class="btn btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
+            <input class="btn btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
+            <input class="btn btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
+            <input class="btn btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
+            <input class="btn btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
+          </ul>
 
+          <p class="mt-5">Project ID:
+            <%= rand(34762..45734) %></p>
+
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="white-box">
+          <h5 class="border-bottom py-2">About the Client</h5>
+
+          <div class="row">
+            <div class="col-1">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="col-10">
+              <p class="mb-2"><%= @job.employer.location.split(", ")[1] %></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1">
+              <img src="https://www.countryflagicons.com/FLAT/16/<%= @country_code %>.png"></div>
+              <div class="col-10">
+                <p class="mb-2"><%= @country %></p>
+              </div>
+            </div>
             <div class="row">
               <div class="col-1">
-                <i class="fa-solid fa-location-dot"></i>
+                <i class="fa-solid fa-user"></i>
               </div>
               <div class="col-10">
-                <p class="mb-2"><%= @job.employer.location.split(", ")[1] %></p>
+                <p class="mb-2">
+                  <i class="fa-solid fa-star text-danger"></i>
+                  <i class="fa-solid fa-star text-danger"></i>
+                  <i class="fa-solid fa-star text-danger"></i>
+                  <i class="fa-solid fa-star text-danger"></i>
+                  <i class="fa-solid fa-star text-danger"></i>
+                  5.0
+                  <i class="fa-solid fa-message ms-3"></i>
+                  <%= rand(1..20) %>
+                </p>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-1">
-                <img src="https://www.countryflagicons.com/FLAT/16/<%= @country_code %>.png"></div>
-                <div class="col-10">
-                  <p class="mb-2"><%= @country %></p>
-                </div>
-              </div>
+
               <div class="row">
                 <div class="col-1">
-                  <i class="fa-solid fa-user"></i>
+                  <i class="fa-solid fa-clock"></i>
                 </div>
                 <div class="col-10">
-                  <p class="mb-2">
-                    <i class="fa-solid fa-star text-danger"></i>
-                    <i class="fa-solid fa-star text-danger"></i>
-                    <i class="fa-solid fa-star text-danger"></i>
-                    <i class="fa-solid fa-star text-danger"></i>
-                    <i class="fa-solid fa-star text-danger"></i>
-                    5.0
-                    <i class="fa-solid fa-message ms-3"></i>
-                    <%= rand(1..20) %>
+                  <p class="mb-2"><%= @job.employer.created_at.strftime("Joined %B %d, %Y") %>
                   </p>
                 </div>
-
-                <div class="row">
-                  <div class="col-1">
-                    <i class="fa-solid fa-clock"></i>
-                  </div>
-                  <div class="col-10">
-                    <p class="mb-2"><%= @job.employer.created_at.strftime("Joined %B %d, %Y") %>
-                    </p>
-                  </div>
-                </div>
-
               </div>
+
             </div>
           </div>
         </div>
+      </div>
