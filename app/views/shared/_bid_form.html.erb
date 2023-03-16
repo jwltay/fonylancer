@@ -1,0 +1,11 @@
+<div class="container">
+  <%= simple_form_for [@job, @bid] do |f| %>
+    <%= simple_fields_for current_user do |u| %>
+      <%= u.input :name, label: 'Name' %>
+      <%= u.input :tagline, label: 'Professional Headline' %>
+      <%= u.input :description, label: 'Summary' %>
+    <% end %>
+    <%= f.input :rate, label: 'Hourly Rate' %>
+    <%= f.submit 'Submit Bid', class: "btn btn-default btn-primary"%>
+  <% end %>
+</div>

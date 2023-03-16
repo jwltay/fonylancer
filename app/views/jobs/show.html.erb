@@ -4,23 +4,13 @@
 <p><%= @job.budget %></p>
 <p><%= @job.employer.username %></p>
 <p><%= @job.employer.name %></p>
-<p><%= @job.start_date %></p>
-<p><%= @job.end_date %></p>
-<p><%= @job.created_at %></p>
+<p><%= @job.start_date.to_date %></p>
+<p><%= @job.end_date.to_date %></p>
+<p><%= @job.created_at.to_date %></p>
 
 <%# ============== COMPLETE YOUR PROFILE PARTIAL ============== %>
 
 
 <%# if current_user.want_to_work %>
-<div class="container">
-  <%= simple_form_for [@job, @bid] do |f| %>
-    <%= simple_fields_for current_user do |u| %>
-      <%= u.input :name, label: 'Name' %>
-      <%= u.input :tagline, label: 'Professional Headline' %>
-      <%= u.input :description, label: 'Summary' %>
-    <% end %>
-    <%= f.input :rate, label: 'Hourly Rate' %>
-    <%= f.submit 'Submit Bid', class: "btn btn-default btn-primary"%>
-  <% end %>
-</div>
+<%= render "shared/bid_form" %>
 <%# end %>
