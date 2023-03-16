@@ -96,18 +96,20 @@
         </div>
       </div>
 
-      <div class="white-box">
-        <h3 class="border-bottom py-3">In Progress</h3>
-        <ul class="list-unstyled">
-          <div class="cards">
-            <% @user.open_projects.each do |bid| %>
-              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path bid.job.photo.key %>')">
-                <li><%= link_to bid.job.title, "#", class:"text-decoration-none text-white" %></li>
-              </div>
-            <% end %>
-          </div>
-        </ul>
-      </div>
+      <% if current_user == @user %>
+        <div class="white-box">
+          <h3 class="border-bottom py-3">In Progress</h3>
+          <ul class="list-unstyled">
+            <div class="cards">
+              <% @user.open_projects.each do |bid| %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path bid.job.photo.key %>')">
+                  <li><%= link_to bid.job.title, "#", class:"text-decoration-none text-white" %></li>
+                </div>
+              <% end %>
+            </div>
+          </ul>
+        </div>
+      <% end %>
 
       <div class="white-box">
         <h3 class="border-bottom py-3">Portfolio Items</h3>
