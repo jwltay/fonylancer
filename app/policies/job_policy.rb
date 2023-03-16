@@ -12,6 +12,5 @@ class JobPolicy < ApplicationPolicy
 
   def show?
     true
-    # record.employer == user
   end
 end

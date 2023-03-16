@@ -6,6 +6,7 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
     authorize @job
+    @bids = policy_scope(@job.bids)
   end
 
   def new
