@@ -45,14 +45,14 @@ Job.all.each do |job|
   end
 end
 
-User.each do |user|
+User.all.each do |user|
   file = URI.open("https://source.unsplash.com/random")
   user.photo.attach(io: file, filename: "photo#{rand(1..100)}", content_type: "image/jpg")
-  article.save
+  user.save
 end
 
-Job.each do |job|
+Job.all.each do |job|
   file = URI.open("https://source.unsplash.com/random")
   job.photo.attach(io: file, filename: "photo#{rand(1..100)}", content_type: "image/jpg")
-  article.save
+  job.save
 end
