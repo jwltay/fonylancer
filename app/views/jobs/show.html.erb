@@ -26,17 +26,41 @@
         <h5 class="mt-5 mb-3">Skills Required</h5>
         <ul class="list-inline">
           <li class="list-inline-item mx-0">
-            <input class="btn btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
-            <input class="btn btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
-            <input class="btn btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
-            <input class="btn btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
-            <input class="btn btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
+            <input class="btn btn-sm btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
+            <input class="btn btn-sm btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
+            <input class="btn btn-sm btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
+            <input class="btn btn-sm btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
+            <input class="btn btn-sm btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
           </ul>
 
           <p class="mt-5">Project ID:
             <%= rand(34762..45734) %></p>
 
         </div>
+
+<%# ============== "COMPLETE YOUR PROFILE" PARTIAL ============== %>
+      <div class="white-box">
+        <div class="d-flex justify-content-between align-items-center border-bottom py-3">
+          <h3 class="font-weight-bold">Complete your profile</h3>
+        </div>
+        <div class="mt-4">
+          <p>Please complete these 3 steps before bidding on the project</p>
+          <div>
+            <%= image_tag "form-progress-bar.png", class: "progress-bar" %>
+            <ul class="list-unstyled d-flex justify-content-between">
+              <li>Update your skills</li>
+              <li>Verify your email</li>
+              <li>Update your profile</li>
+            </ul>
+          </div>
+          <div class="bid-form">
+            <%# if current_user.want_to_work %>
+            <%= render "shared/bid_form" %>
+            <%# end %>
+          </div>
+        </div>
+      </div>
+<%# ============== END "COMPLETE YOUR PROFILE" PARTIAL ============== %>
       </div>
       <div class="col-3">
         <div class="white-box">
@@ -88,9 +112,3 @@
           </div>
         </div>
       </div>
-
-<%# ============== "COMPLETE YOUR PROFILE" PARTIAL ============== %>
-
-<%# if current_user.want_to_work %>
-<%= render "shared/bid_form" %>
-<%# end %>
