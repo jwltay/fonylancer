@@ -15,11 +15,23 @@ class BidsController < ApplicationController
   end
 
   def create
-    bid = Bid.new(job: @job, freelancer: current_user, rate: bid_params[:rate])
-    if bid.save
+    # TODO: make params into strong params
+    @bid = Bid.new(job: @job, freelancer: current_user, rate: params['bid']['rate'])
+
+    user = current_user
+    user.name = params['user']['name']
+    user.tagline = params['user']['tagline']
+    user.description = params['user']['description']
+    user.save!
+
+    # TODO: make params into strong params user_params
+    user.update_attributes(params['user'])
+
+    if @bid.save
+      flash[:notice] = "Bid submitted successfully!"
       redirect_to job_path(@job)
     else
-      render :new, status: :unprocessable_entity
+      render 'jobs/show', status: :unprocessable_entity
     end
   end
 
