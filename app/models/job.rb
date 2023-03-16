@@ -10,7 +10,6 @@ class Job < ApplicationRecord
   validates :budget, presence: true
   validates :end_date, presence: true, comparison: { greater_than: :start_date }
   validates :start_date, presence: true
-  validates :complete, presence: true
 
   def open?
     bids.each do |bid|
