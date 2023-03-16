@@ -10,6 +10,7 @@ class JobsController < ApplicationController
   end
 
   def new
+    authenticate_user!
     @job = Job.new
     @job.employer = current_user
     authorize @job
