@@ -82,12 +82,21 @@
   </div>
 </div>
 </div>
-<div class="container">
-  <% if user_signed_in? %>
-    <h1 class="mt-2 mb-2" id="header-font"> <%= current_user.username %> </h1>
-    <h3 id="header-font"> Attending</h3>
-  <% end %>
-  <% @bids.each do |bid| %>
-    <p><%= bid.id %></p>
-  <% end %>
+<div class="freelancer-card d-flex pt-3">
+  <%= image_tag "https://source.unsplash.com/random" %>
+  <div class="container">
+    <% if user_signed_in? %>
+      <h1 class="mt-2 mb-2" id="header-font"> <%= current_user.username %>
+        <div class="container">
+          <% if user_signed_in? %>
+            <h1 class="mt-5 mb-3" id="header-font"> <%= current_user.name %> </h1>
+            <h3 id="header-font"> Attending</h3>
+          <% end %></h1>
+        <h3 id="header-font"> Attending</h3>
+      <% end %>
+      <% @bids.each do |bid| %>
+        <p><%= bid.id %></p>
+      <% end %>
+    </div>
+  </div>
 </div>
