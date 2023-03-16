@@ -5,14 +5,33 @@
 </div>
 
 <div class="container">
-  <div class="white-box">
-    <h3 class="border-bottom py-3">Project Details</h3>
-    <p><%= @job.description %></p>
-    <p><%= @job.budget %></p>
-    <p><%= @job.employer.username %></p>
-    <p><%= @job.employer.name %></p>
-    <p><%= @job.start_date %></p>
-    <p><%= @job.end_date %></p>
-    <p><%= @job.created_at %></p>
+  <div class="row">
+    <div class="col-8">
+      <div class="white-box">
+        <div class="d-flex justify-content-between align-items-center border-bottom py-3">
+          <h3 class="font-weight-bold">Project Details</h3>
+          <h5 class="font-weight-bold">$<%= @job.budget %>
+            USD</h5>
+        </div>
+
+        <p><%= @job.description %></p>
+        <p><%= @job.budget %></p>
+        <p><%= @job.employer.username %></p>
+        <p><%= @job.employer.name %></p>
+        <p><%= @job.start_date %></p>
+        <p><%= @job.end_date %></p>
+        <p><%= @job.created_at %></p>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="white-box">
+        <h5 class="border-bottom py-2">About the Client</h5>
+        <p>
+          <i class="fa-solid fa-location-dot"></i>
+          <%= @job.employer.location.split(", ")[1] %></p>
+
+
+      </div>
+    </div>
   </div>
 </div>
