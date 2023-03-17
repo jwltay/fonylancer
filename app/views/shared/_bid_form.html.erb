@@ -1,11 +1,16 @@
 <div class="container">
   <%= simple_form_for [@job, @bid] do |f| %>
+  <div class="form-inputs fw-semibold">
     <%= simple_fields_for current_user do |u| %>
-      <%= u.input :name, label: 'Name' %>
+      <%= u.input :name, label: 'Name', :input_html => { :style=> 'width: 400px' } %>
       <%= u.input :tagline, label: 'Professional Headline' %>
-      <%= u.input :description, label: 'Summary' %>
+      <%= u.input :description, label: 'Summary', :as => :text, :input_html => { 'rows' => 5, 'cols' => 10 } %>
     <% end %>
-    <%= f.input :rate, label: 'Hourly Rate' %>
-    <%= f.submit 'Submit Bid', class: "btn btn-default btn-primary"%>
+    <%= f.input :rate, label: 'Hourly Rate', :input_html => { :style=> 'width: 400px' } %>
+  </div>
+    <div class="d-flex justify-content-end align-items-baseline gap-4">
+      <p class="fw-semibold">Submitting a profile picture and all other fields is required</p>
+      <%= f.submit 'Save', class: "btn btn-default btn-primary"%>
+    </div>
   <% end %>
 </div>

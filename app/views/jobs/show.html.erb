@@ -78,7 +78,23 @@
         <!-- end bid index-->
 
         <!-- ************** INSERT ALL NEW WHITE BOXES HERE!!!!! NOT BELOW THANKS ************ -->
+      <%# ============== "COMPLETE YOUR PROFILE" PARTIAL ============== %>
 
+      <%# if current_user.want_to_work %>
+      <div class="white-box">
+        <div class="border-bottom py-3">
+          <h3 class="font-weight-bold">Complete your profile</h3>
+        </div>
+          <p class="py-3">Please complete these 3 steps before bidding on the project</p>
+          <%= image_tag "form-progress-bar.png", class:"progress-bar" %>
+          <ul class="d-flex list-unstyled justify-content-between fw-semibold">
+            <li>Update your skills</li>
+            <li>Verify your email</li>
+            <li>Update your profile</li>
+          </ul>
+          <%= render "shared/bid_form" %>
+      </div>
+      <%# end %>
 
       </div>
 
@@ -131,9 +147,3 @@
         </div>
       </div>
       <!-- end about employer -->
-
-      <%# ============== "COMPLETE YOUR PROFILE" PARTIAL ============== %>
-
-      <%# if current_user.want_to_work %>
-      <%= render "shared/bid_form" %>
-      <%# end %>
