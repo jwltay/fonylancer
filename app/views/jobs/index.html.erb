@@ -1,47 +1,84 @@
 <%= render "shared/secondary_navbar" %>
-<div class="container mt-2">
-  <div class="row">
-    <div class="search-form-control form-group">
-      <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-        <button name="button" type="submit" class="btn btn-flat">
-          <i class="fas fa-search"></i> Search
-        </button>
-      <% end %>
-    </div>
-    <div class="col-12">
-      <div class="freelancer-wrapper">
-        <div>
-          <%= select_tag(:city, options_for_select(['Newest first', 'Lowest budget first', 'highest budget first'], 'Newest first')) %>
-        </div>
-        <p><span class="d-block pt-1 px-2"><%= @jobs.count %> jobs found, pricing in USD</span></p>
-        <%= will_paginate @jobs %>
-        <p>Showing
-          <%= @jobs.count %>
-          results</p>
+
+<!-- search bar -->
+<div class="black-header">
+  <div class="container px-4">
+    <h2 class="text-white">Browse</h2>
+    <div class="input-group d-flex">
+      <div class="form-outline flex-grow-1">
+        <input type="search" id="form1" class="form-control"/>
       </div>
-      <% @jobs.each do |job| %>
-        <div class="freelancer-card d-flex pt-3">
-          <div class="job-details">
-            <%= link_to job_path(job), class:"text-decoration-none" do %>
-              <%= job.title %>
-            <% end %>
-            <p><%= job.description %></p>
-            <p><%= job.budget %></p>
-            <p><%= job.employer.username %></p>
-            <p><%= job.employer.name %></p>
-            <div class="d-flex align-items-center justify-content-between mb-3">
-              <%= link_to "Bid now", new_job_path, class: "btn btn-flat" %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+      <button type="button" class="btn btn-primary">
+        <i class="fas fa-search"></i>
+        Search
+      </button>
     </div>
   </div>
 </div>
-</div>
-<div class="container py-5">
-  <div class="d-flex align-items-center justify-content-between mb-3">
-    <%= link_to "Create a job list", new_job_path, class: "btn btn-flat" %>
+
+<!-- end search -->
+<div class="container mt-2">
+  <div class="white-box">
+    <div class="col-12">
+      <div class="d-flex justify-content-between">
+        <div class="result-info d-flex">
+          <h5 class="me-3">Top results</h5>
+          <p class="me-3 fw-light">1-5 of
+            <% Job.all.size %>
+            results</p>
+          <p class="me-3 fw-light">
+            <i class="fa-solid fa-bell"></i>
+            Receive alerts for this search
+            <i class="fa-solid fa-toggle-on ms-2 me-3"></i>
+          </p>
+        </div>
+        <div class="sort-dropdown">
+          Sort by
+          <%= select_tag(:city, options_for_select(['Newest first', 'Lowest budget first', 'highest budget first'], 'Newest first')) %>
+        </div>
+      </div>
+    </div>
+
+
+    <% @jobs.each do |job| %>
+      <div class="freelancer-card d-flex pt-3">
+        <div class="job-details">
+          <div class="d-flex justify-content-between">
+            <%= link_to job_path(job), class:"text-primary fs-4" do %>
+              <%= job.title %>
+            <% end %>
+            <p class="fs-4 text-body">$
+              <%= job.budget %>
+              USD</p>
+          </div>
+          <p><%= job.description %></p>
+          <p class="fs-6 text-primary"><%= Faker::Job.key_skill %>
+            •
+            <%= Faker::Job.key_skill %>
+            •
+            <%= Faker::Job.key_skill %>
+            •
+            <%= Faker::Job.key_skill %>
+            •
+            <%= Faker::Job.key_skill %></p>
+          <div class="d-flex justify-content-between">
+            <p class="mb-2">
+              <i class="fa-solid fa-star text-danger"></i>
+              <i class="fa-solid fa-star text-danger"></i>
+              <i class="fa-solid fa-star text-danger"></i>
+              <i class="fa-solid fa-star text-danger"></i>
+              <i class="fa-solid fa-star text-danger"></i>
+              <%= rand(4.7..5).round(1) %>
+              <i class="fa-solid fa-message ms-3"></i>
+              <%= rand(1..5) %>
+            </p>
+            <i class="fa-regular fa-bookmark"></i>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div class="d-flex flex-row-reverse">
+      <%= will_paginate @jobs %>
+    </div>
   </div>
 </div>
