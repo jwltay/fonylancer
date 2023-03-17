@@ -25,10 +25,10 @@
   display: flex;
   justify-content: start;
   align-items: center;
-  position: relative;
   min-width:max-content;
   flex-wrap: nowrap;
 }
+
 
 .sec-navbar .btn {
   color: white;
@@ -41,11 +41,13 @@
   background: #ffffff26;
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
 .job-link-card {
   position: absolute;
-  top: 100%;
-  left: 0;
-  transform: translate(80px, 0px);
   z-index: 1;
   display: none;
   width: max-content;
@@ -68,9 +70,6 @@
 
 .freelancer-link-card {
   position: absolute;
-  top: 100%;
-  left: 0;
-  transform: translate(175px, 0px);
   z-index: 1;
   display: none;
   width: max-content;
@@ -93,9 +92,6 @@
 
 .idea-link-card {
   position: absolute;
-  top: 100%;
-  left: 0;
-  transform: translate(310px, 0px);
   z-index: 1;
   display: none;
   width: max-content;
@@ -118,9 +114,6 @@
 
 .about-link-card {
   position: absolute;
-  top: 100%;
-  left: 0;
-  transform: translate(405px, 0px);
   z-index: 1;
   display: none;
   width: max-content;
@@ -143,9 +136,6 @@
 
 .resource-link-card {
   position: absolute;
-  top: 100%;
-  left: 0;
-  transform: translate(480px, 0px);
   z-index: 1;
   display: none;
   width: max-content;
