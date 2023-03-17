@@ -1,3 +1,4 @@
+<%= render "shared/secondary_navbar" %>
 <div class="black-header">
   <div class="container">
     <div class="d-flex align-items-center justify-content-between">
@@ -125,3 +126,9 @@
           </div>
         </div>
       </div>
+
+<%# ============== "COMPLETE YOUR PROFILE" PARTIAL ============== %>
+
+<%# if current_user.want_to_work %>
+<%= render "shared/bid_form" %>
+<%# end %>

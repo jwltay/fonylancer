@@ -5,15 +5,16 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require 'open-uri'
 
 # seeds users
-10.times do
+20.times do
   User.create!(
     username: Faker::Internet.username,
     name: Faker::Name.name,
     email: Faker::Internet.email,
     password: "password",
-    description: Faker::Quote.famous_last_words,
+    description: Faker::Lorem.paragraphs(number: 10, supplemental: true).join,
     location: "#{Faker::Address.street_address}, #{Faker::Address.city}, #{Faker::Address.country_code}",
     tagline: Faker::Marketing.buzzwords,
     want_to_work: rand(0..1) == 1
@@ -22,10 +23,10 @@ end
 
 # # seeds jobs
 
-5.times do
+20.times do
   Job.create!(
     title: Faker::Job.title,
-    description: Faker::Lorem.sentence,
+    description: Faker::Lorem.paragraphs(number: 10, supplemental: true).join,
     budget: rand(100..10000),
     employer_id: rand(1..10),
     start_date: Date.today,
@@ -35,11 +36,23 @@ end
 
 # seeds bids for jobs
 Job.all.each do |job|
-  2.times do
+  3.times do
     Bid.create!(
       rate: rand(100..1000),
       freelancer_id: User.find(([1, 2, 3, 4, 5, 6, 7, 8, 9, 10] - [job.employer_id]).sample).id,
       job_id: job.id
     )
   end
+end
+
+User.all.each do |user|
+  file = URI.open("https://source.unsplash.com/random")
+  user.photo.attach(io: file, filename: "photo#{rand(1..100)}", content_type: "image/jpg")
+  user.save
+end
+
+Job.all.each do |job|
+  file = URI.open("https://source.unsplash.com/random")
+  job.photo.attach(io: file, filename: "photo#{rand(1..100)}", content_type: "image/jpg")
+  job.save
 end

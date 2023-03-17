@@ -14,9 +14,8 @@
         <p class="alert"><%= alert %></p>
       <% end %>
 
-      <% unless current_page?(new_job_path) %>
+      <% unless current_page?(new_job_path) || current_page?(new_user_registration_path) %>
         <%= render "shared/navbar" %>
-        <%= render "shared/secondary_navbar" %>
       <% end %>
 
       <%= yield %>
