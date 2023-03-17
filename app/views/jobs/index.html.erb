@@ -2,7 +2,7 @@
 
 <!-- search bar -->
 <div class="black-header">
-  <div class="container">
+  <div class="container px-4">
     <h2 class="text-white">Browse</h2>
     <div class="input-group d-flex">
       <div class="form-outline flex-grow-1">
@@ -31,7 +31,6 @@
             Receive alerts for this search
             <i class="fa-solid fa-toggle-on ms-2 me-3"></i>
           </p>
-          <%= will_paginate @jobs %>
         </div>
         <div class="sort-dropdown">
           Sort by
@@ -44,21 +43,42 @@
     <% @jobs.each do |job| %>
       <div class="freelancer-card d-flex pt-3">
         <div class="job-details">
-          <%= link_to job_path(job), class:"text-decoration-none" do %>
-            <%= job.title %>
-          <% end %>
+          <div class="d-flex justify-content-between">
+            <%= link_to job_path(job), class:"text-primary fs-4" do %>
+              <%= job.title %>
+            <% end %>
+            <p class="fs-4 text-body">$
+              <%= job.budget %>
+              USD</p>
+          </div>
           <p><%= job.description %></p>
-          <p><%= job.budget %></p>
-          <p><%= job.employer.username %></p>
-          <p><%= job.employer.name %></p>
-          <div class="d-flex align-items-center justify-content-between mb-3">
-            <%= link_to "Bid now", new_job_path, class: "btn btn-primary" %>
+          <p class="fs-6 text-primary"><%= Faker::Job.key_skill %>
+            •
+            <%= Faker::Job.key_skill %>
+            •
+            <%= Faker::Job.key_skill %>
+            •
+            <%= Faker::Job.key_skill %>
+            •
+            <%= Faker::Job.key_skill %></p>
+          <div class="d-flex justify-content-between">
+            <p class="mb-2">
+              <i class="fa-solid fa-star text-danger"></i>
+              <i class="fa-solid fa-star text-danger"></i>
+              <i class="fa-solid fa-star text-danger"></i>
+              <i class="fa-solid fa-star text-danger"></i>
+              <i class="fa-solid fa-star text-danger"></i>
+              <%= rand(4.7..5).round(1) %>
+              <i class="fa-solid fa-message ms-3"></i>
+              <%= rand(1..5) %>
+            </p>
+            <i class="fa-regular fa-bookmark"></i>
           </div>
         </div>
       </div>
     <% end %>
+    <div class="d-flex flex-row-reverse">
+      <%= will_paginate @jobs %>
+    </div>
   </div>
-</div>
-<div class="container py-5">
-  <div class="d-flex align-items-center justify-content-between mb-3"><%= link_to "Create a job list", new_job_path, class: "btn btn-primary" %></div>
 </div>
