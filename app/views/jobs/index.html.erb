@@ -1,47 +1,66 @@
 <%= render "shared/secondary_navbar" %>
-<div class="container mt-2">
-  <div class="row">
-    <div class="search-form-control form-group">
-      <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-        <button name="button" type="submit" class="btn btn-flat">
-          <i class="fas fa-search"></i> Search
-        </button>
-      <% end %>
+
+<!-- search bar -->
+<div class="black-header">
+  <div class="container">
+    <h2 class="text-white">Browse</h2>
+    <div class="input-group d-flex">
+      <div class="form-outline flex-grow-1">
+        <input type="search" id="form1" class="form-control"/>
+      </div>
+      <button type="button" class="btn btn-primary">
+        <i class="fas fa-search"></i>
+        Search
+      </button>
     </div>
-    <div class="col-12">
-      <div class="freelancer-wrapper">
-        <div>
+  </div>
+</div>
+
+<!-- end search -->
+<div class="container mt-2">
+  <div class="col-12">
+    <div class="freelancer-wrapper">
+      <div class="d-flex justify-content-between">
+        <div class="result-info d-flex">
+          <h5 class="me-3">Top results</h5>
+          <p class="me-3 fw-light">1-5 of
+            <% Job.all.size %>
+            results</p>
+          <p class="me-3 fw-light">
+            <i class="fa-solid fa-bell"></i>
+            Receive alerts for this search
+            <i class="fa-solid fa-toggle-on ms-2"></i>
+          </p>
+        </div>
+        <div class="sort-dropdown">
+          Sort by
           <%= select_tag(:city, options_for_select(['Newest first', 'Lowest budget first', 'highest budget first'], 'Newest first')) %>
         </div>
-        <p><span class="d-block pt-1 px-2"><%= @jobs.count %> jobs found, pricing in USD</span></p>
-        <%= will_paginate @jobs %>
-        <p>Showing
-          <%= @jobs.count %>
-          results</p>
       </div>
-      <% @jobs.each do |job| %>
-        <div class="freelancer-card d-flex pt-3">
-          <div class="job-details">
-            <%= link_to job_path(job), class:"text-decoration-none" do %>
-              <%= job.title %>
-            <% end %>
-            <p><%= job.description %></p>
-            <p><%= job.budget %></p>
-            <p><%= job.employer.username %></p>
-            <p><%= job.employer.name %></p>
-            <div class="d-flex align-items-center justify-content-between mb-3">
-              <%= link_to "Bid now", new_job_path, class: "btn btn-flat" %>
-            </div>
+      <p>
+        <span class="d-block pt-1 px-2"><%= @jobs.count %>
+          jobs found, pricing in USD</span>
+      </p>
+      <%= will_paginate @jobs %>
+      <p>Showing
+        <%= @jobs.count %>
+        results</p>
+    </div>
+    <% @jobs.each do |job| %>
+      <div class="freelancer-card d-flex pt-3">
+        <div class="job-details">
+          <%= link_to job_path(job), class:"text-decoration-none" do %>
+            <%= job.title %>
+          <% end %>
+          <p><%= job.description %></p>
+          <p><%= job.budget %></p>
+          <p><%= job.employer.username %></p>
+          <p><%= job.employer.name %></p>
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <%= link_to "Bid now", new_job_path, class: "btn btn-flat" %>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
-</div>
-</div>
-<div class="container py-5">
-  <div class="d-flex align-items-center justify-content-between mb-3">
-    <%= link_to "Create a job list", new_job_path, class: "btn btn-flat" %>
-  </div>
-</div>
+</div></div></div><div class="container py-5"><div class="d-flex align-items-center justify-content-between mb-3"><%= link_to "Create a job list", new_job_path, class: "btn btn-flat" %></div></div>
