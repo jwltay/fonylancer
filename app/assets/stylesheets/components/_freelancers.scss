@@ -1,13 +1,8 @@
-.filter-form {
-  padding: 8px;
-  text-align: center;
-  box-shadow: 0px -1px 5px 0.2px rgb(137, 137, 137);
-  background-color: white;
-}
-
 .freelancer-wrapper {
   background-color: white;
   padding-top: 0;
+  padding: 16px;
+  margin-top: 16px;
   box-shadow: 0px -1px 5px 0.2px rgb(137, 137, 137);
 }
 
@@ -19,37 +14,46 @@
 .freelancer-card {
   border-bottom: 1px dotted black;
   padding: 12px;
-  padding-bottom: 0;
+  align-items: center;
+}
+
+.freelancer-card a {
+  display: flex;
+  text-decoration: none;
+  color: black;
 }
 
 .freelancer-card:hover {
   background-color: rgb(216, 216, 216);
 }
 
-.freelancer-card>img {
-  height: 60px;
-  width: 60px;
+.freelancer-card-photo {
+  width: 200px;
+  height: 200px;
   margin-right: 16px;
 }
 
-.freelancer-details {
-  width: 100%;
+.freelancer-card-photo > img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-.freelancer-details .btn{
-  padding: 0;
-  padding-right: 2px;
-  height: 34px;
+.freelancer-card-rates {
+  height: 200px;
+  text-align: right;
+  min-width: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
 }
 
-.freelancer-details .category {
-  text-decoration: none;
-  font-weight: bold;
-  color: black;
+.freelancer-card-rates h3 {
+  font-size: 20px;
+  margin-bottom: 0;
 }
 
-.freelancer-details a:hover {
-  text-decoration: underline;
-  font-weight: bold;
-  color: black;
+.freelancer-card-rates a.btn{
+  color:white;
 }

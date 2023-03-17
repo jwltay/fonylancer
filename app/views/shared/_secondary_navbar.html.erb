@@ -1,5 +1,6 @@
 <div class="sec-navbar">
-    <div class="container container-fluid justify-content-start">
+  <div class="container d-flex container-fluid justify-content-start">
+    <div class="dropdown">
       <%= link_to "Find Jobs", jobs_path, class: "btn job" %>
       <div class="job-link-card">
         <%= link_to "By Skill", "#" %>
@@ -7,12 +8,16 @@
         <%= link_to "Feature Jobs", "#" %>
         <%= link_to "Find Contacts", "#" %>
       </div>
+    </div>
+    <div class="dropdown">
       <%= link_to "Hire Freelancers", freelancers_path, class: "btn freelancer" %>
       <div class="freelancer-link-card">
         <%= link_to "By Skill", "#" %>
         <%= link_to "By Location", "#" %>
         <%= link_to "Skill Category", "#" %>
       </div>
+    </div>
+    <div class="dropdown">
       <%= link_to "Get Ideas", "#", class: "btn idea" %>
       <div class="idea-link-card">
         <%= link_to "Get Web Design Ideas", "#" %>
@@ -26,6 +31,8 @@
         <%= link_to "Get Package Design Ideas", "#" %>
         <%= link_to "Get Wordpress Ideas", "#" %>
       </div>
+    </div>
+    <div class="dropdown">
       <%= link_to "About", "#", class: "btn about" %>
       <div class="about-link-card">
         <%= link_to "Enterprise", "#" %>
@@ -33,6 +40,8 @@
         <%= link_to "Preferred Freelancer Program", "#" %>
         <%= link_to "Get Verified", "#" %>
       </div>
+    </div>
+    <div class="dropdown">
       <%= link_to "Resources", "#", class: "btn resource" %>
       <div class="resource-link-card">
         <%= link_to "What Is Adobe Photoshop", "#" %>
@@ -53,4 +62,5 @@
         <%= link_to "What Is WordPress", "#" %>
       </div>
     </div>
+  </div>
 </div>
