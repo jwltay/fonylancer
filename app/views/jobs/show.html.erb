@@ -79,7 +79,8 @@
                   <p><%= bid.job.employer == current_user %></p>
                 </div>
                 <div class="freelancer-card-rates">
-                  <h3>$<%= rand(50..500) %> USD</h3>
+                  <h3>$<%= rand(50..500) %>
+                    USD</h3>
                   <p>per hour</p>
                   <p>
                     <i class="fa-regular fa-heart"></i>
@@ -115,6 +116,10 @@
         <div class="white-box">
           <h5 class="border-bottom py-2">About the Client</h5>
           <div class="row">
+            <p class="fs-6 fw-bold col-11">
+              <%= @job.employer.name %></p>
+          </div>
+          <div class="row">
             <div class="col-1">
               <i class="fa-solid fa-location-dot"></i>
             </div>
@@ -124,9 +129,9 @@
           </div>
           <div class="row">
             <div class="col-1">
-              <img src="https://www.countryflagicons.com/FLAT/16/<%= @country_code %>.png">
+              <img src="https://www.countryflagicons.com/FLAT/16/<%= @country_code %>.png"></div>
               <div class="col-10">
-                <p class="mb-2"><%= @country %></p>
+                <p class="mb-2"><%= Faker::Address.country %></p>
               </div>
             </div>
             <div class="row">
