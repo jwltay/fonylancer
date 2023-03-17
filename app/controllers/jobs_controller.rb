@@ -9,7 +9,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @bid = Bid.new
     @country_code = @job.employer.country_code
-    @country = @job.employer.country
+    # @country = @job.employer.country
     authorize @job
     @bids = policy_scope(@job.bids)
   end
