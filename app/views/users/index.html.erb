@@ -9,26 +9,44 @@
           results</p>
         <% @freelancers.each do |freelancer| %>
           <div class="freelancer-card d-flex pt-3">
+
             <%= link_to freelancer_path(freelancer) do %>
+
               <div class="freelancer-card-photo">
                 <%= image_tag cl_image_path freelancer.photo.key %>
               </div>
+
               <div class="freelancer-card-details">
                 <div class="d-flex align-items-center">
                   <h3><%= freelancer.name %></h3>
                   <p class="mb-2 mx-2">@<%= freelancer.username %></p>
                 </div>
-                <p><%= freelancer.description %></p>
+                <div
+                  data-controller="truncate"
+                  data-truncate-target="content"
+                  data-truncate-max-height="200"
+                  data-truncate-collapsed="true"
+                  class="truncate"
+                >
+                  <p><%= freelancer.description %></p>
+                  <a
+                    data-action="click->truncate#toggleContent"
+                    data-truncate-target="toggle"
+                    class="btn btn-link truncate-toggle">
+                  </a>
+                </div>
               </div>
             <% end %>
+
             <div class="freelancer-card-rates">
-                <h3>$<%= rand(50..500) %> USD</h3>
-                <p>per hour</p>
-                <%= link_to new_user_registration_path, class: "btn btn-primary d-inline-block mt-auto p-2" do %>
-                  <%= image_tag "small_bird.jpg", style: "height: 32px" %>
-                  Hire me
-                <% end %>
-              </div>
+              <h3>$<%= rand(50..500) %> USD</h3>
+              <p>per hour</p>
+              <%= link_to new_user_registration_path, class: "btn btn-primary d-inline-block mt-auto p-2" do %>
+                <%= image_tag "small_bird.jpg", style: "height: 32px" %>
+                Hire me
+              <% end %>
+            </div>
+
           </div>
         <% end %>
       </div>
