@@ -16,24 +16,7 @@
               <div class="freelancer-card-details">
                 <div class="d-flex align-items-center">
                   <h3><%= freelancer.name %></h3>
-                  <p class="mb-2 mx-2" style="color: rgb(143, 143, 143); font-size:20px;">@<%= freelancer.username %></p>
-                  <p class="mb-2 mx-1" style="font-size:20px;">
-                    <i class="fa-solid fa-shield-dog"></i>
-                    <i class="fa-brands fa-gratipay"></i>
-                    <i class="fa-solid fa-building"></i>
-                  </p>
-                </div>
-                <div class="d-flex align-items-center">
-                  <p>
-                    <i class="fa-solid fa-star text-danger"></i>
-                    <i class="fa-solid fa-star text-danger"></i>
-                    <i class="fa-solid fa-star text-danger"></i>
-                    <i class="fa-solid fa-star text-danger"></i>
-                    <i class="fa-solid fa-star text-danger"></i>
-                    <%= rand(4.7..5).round(1) %>
-                    (<%= rand(1..20) %>
-                    reviews)
-                  </p>
+                  <p class="mb-2 mx-2">@<%= freelancer.username %></p>
                 </div>
                 <p><%= freelancer.description %></p>
               </div>
