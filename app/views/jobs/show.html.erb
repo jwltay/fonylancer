@@ -2,7 +2,7 @@
 
 <!-- job header -->
 <div class="black-header">
-  <div class="container">
+  <div class="container px-4">
     <div class="d-flex align-items-center justify-content-between">
       <h2><%= @job.title %></h2>
       <p class="fw-bold">
@@ -96,7 +96,23 @@
         <!-- end bid index-->
 
         <!-- ************** INSERT ALL NEW WHITE BOXES HERE!!!!! NOT BELOW THANKS ************ -->
+      <%# ============== "COMPLETE YOUR PROFILE" PARTIAL ============== %>
 
+      <%# if current_user.want_to_work %>
+      <div class="white-box">
+        <div class="border-bottom py-3">
+          <h3 class="font-weight-bold">Complete your profile</h3>
+        </div>
+          <p class="py-3">Please complete these 3 steps before bidding on the project</p>
+          <%= image_tag "form-progress-bar.png", class:"progress-bar" %>
+          <ul class="d-flex list-unstyled justify-content-between fw-semibold">
+            <li>Update your skills</li>
+            <li>Verify your email</li>
+            <li>Update your profile</li>
+          </ul>
+          <%= render "shared/bid_form" %>
+      </div>
+      <%# end %>
 
       </div>
 
@@ -130,7 +146,7 @@
                   <i class="fa-solid fa-star text-danger"></i>
                   <i class="fa-solid fa-star text-danger"></i>
                   <i class="fa-solid fa-star text-danger"></i>
-                  rand(4.7..5).round(1)
+                  <%= rand(4.7..5).round(1) %>
                   <i class="fa-solid fa-message ms-3"></i>
                   <%= rand(1..20) %>
                 </p>
@@ -149,9 +165,3 @@
         </div>
       </div>
       <!-- end about employer -->
-
-      <%# ============== "COMPLETE YOUR PROFILE" PARTIAL ============== %>
-
-      <%# if current_user.want_to_work %>
-      <%= render "shared/bid_form" %>
-      <%# end %>
