@@ -46,32 +46,11 @@
             <div class="border-bottom py-3">
               <h3 class="font-weight-bold">Current Bids</h3>
             </div>
-<<<<<<< HEAD
 
             <% @bids.each do |bid| %>
               <div class="freelancer-card d-flex">
                 <div class="freelancer-card-photo">
                   <%= image_tag cl_image_path bid.freelancer.photo.key %>
-=======
-            <span>
-              <% @bids.each do |bid| %>
-                <div class="box border">
-                  <%= image_tag "https://source.unsplash.com/random", class: "freelancer_avatar" %>
-                  <i class="fa-solid fa-star text-danger"></i>
-                  <i class="fa-solid fa-star text-danger"></i>
-                  <i class="fa-solid fa-star text-danger"></i>
-                  <i class="fa-solid fa-star text-danger"></i>
-                  <i class="fa-solid fa-star text-danger"></i>
-                  <%= rand(4.7..5).round(1) %>
-                  <i class="fa-solid fa-message ms-3"></i>
-                  <%= rand(1..20) %>
-                  <i class="fa-solid fa-user"></i>
-                  <p><%= bid.freelancer.username %></p>
-                  <p><%= bid.rate %></p>
-                  <p><%= bid.accepted %></p>
-                  <p><%= bid.freelancer_id %></p>
-                  <p><%= bid.job_id %></p>
->>>>>>> master
                 </div>
 
                 <div class="freelancer-card-details">
