@@ -2,7 +2,7 @@
 
 <!-- job header -->
 <div class="black-header">
-  <div class="container">
+  <div class="container px-4">
     <div class="d-flex align-items-center justify-content-between">
       <h2><%= @job.title %></h2>
       <p class="fw-bold">
@@ -59,7 +59,7 @@
                   <i class="fa-solid fa-star text-danger"></i>
                   <i class="fa-solid fa-star text-danger"></i>
                   <i class="fa-solid fa-star text-danger"></i>
-                  rand(4.7..5).round(1)
+                  <%= rand(4.7..5).round(1) %>
                   <i class="fa-solid fa-message ms-3"></i>
                   <%= rand(1..20) %>
 
@@ -128,7 +128,7 @@
                   <i class="fa-solid fa-star text-danger"></i>
                   <i class="fa-solid fa-star text-danger"></i>
                   <i class="fa-solid fa-star text-danger"></i>
-                  rand(4.7..5).round(1)
+                  <%= rand(4.7..5).round(1) %>
                   <i class="fa-solid fa-message ms-3"></i>
                   <%= rand(1..20) %>
                 </p>
