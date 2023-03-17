@@ -18,8 +18,8 @@
 
 <!-- end search -->
 <div class="container mt-2">
-  <div class="col-12">
-    <div class="freelancer-wrapper">
+  <div class="white-box">
+    <div class="col-12">
       <div class="d-flex justify-content-between">
         <div class="result-info d-flex">
           <h5 class="me-3">Top results</h5>
@@ -29,23 +29,18 @@
           <p class="me-3 fw-light">
             <i class="fa-solid fa-bell"></i>
             Receive alerts for this search
-            <i class="fa-solid fa-toggle-on ms-2"></i>
+            <i class="fa-solid fa-toggle-on ms-2 me-3"></i>
           </p>
+          <%= will_paginate @jobs %>
         </div>
         <div class="sort-dropdown">
           Sort by
           <%= select_tag(:city, options_for_select(['Newest first', 'Lowest budget first', 'highest budget first'], 'Newest first')) %>
         </div>
       </div>
-      <p>
-        <span class="d-block pt-1 px-2"><%= @jobs.count %>
-          jobs found, pricing in USD</span>
-      </p>
-      <%= will_paginate @jobs %>
-      <p>Showing
-        <%= @jobs.count %>
-        results</p>
     </div>
+
+
     <% @jobs.each do |job| %>
       <div class="freelancer-card d-flex pt-3">
         <div class="job-details">
@@ -57,10 +52,13 @@
           <p><%= job.employer.username %></p>
           <p><%= job.employer.name %></p>
           <div class="d-flex align-items-center justify-content-between mb-3">
-            <%= link_to "Bid now", new_job_path, class: "btn btn-flat" %>
+            <%= link_to "Bid now", new_job_path, class: "btn btn-primary" %>
           </div>
         </div>
       </div>
     <% end %>
   </div>
-</div></div></div><div class="container py-5"><div class="d-flex align-items-center justify-content-between mb-3"><%= link_to "Create a job list", new_job_path, class: "btn btn-flat" %></div></div>
+</div>
+<div class="container py-5">
+  <div class="d-flex align-items-center justify-content-between mb-3"><%= link_to "Create a job list", new_job_path, class: "btn btn-primary" %></div>
+</div>
