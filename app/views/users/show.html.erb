@@ -36,7 +36,7 @@ class="container">
         <div class="col-9">
           <p>
             <%= @user.location.split(",")[1] %>,
-            <%= @user.country %>
+            <%= Faker::Address.country %>
           </p>
         </div>
       </div>
