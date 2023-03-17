@@ -20,10 +20,10 @@ class User < ApplicationRecord
     location.split(", ")[2]
   end
 
-  def country
-    @country_code = location.split(", ")[2]
-    JSON.parse(URI.open("https://restcountries.com/v3.1/alpha/#{@country_code}").read)[0]["name"]["common"]
-  end
+  # def country
+  #   @country_code = location.split(", ")[2]
+  #   JSON.parse(URI.open("https://restcountries.com/v3.1/alpha/#{@country_code}").read)[0]["name"]["common"]
+  # end
 
   def open_projects
     sql = "bids.freelancer_id = #{id} AND bids.accepted = true AND jobs.complete = false"
