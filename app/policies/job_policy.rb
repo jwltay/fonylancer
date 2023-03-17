@@ -7,7 +7,7 @@ class JobPolicy < ApplicationPolicy
   end
 
   def create?
-    record.employer == user
+    user != nil
   end
 
   def show?

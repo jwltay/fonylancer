@@ -56,7 +56,9 @@
                 <div class="freelancer-card-details">
                   <div class="d-flex align-items-center">
                     <h3><%= bid.freelancer.name %></h3>
-                    <p class="mb-2 mx-2">@<%= bid.freelancer.username %></p>
+                    <%= link_to freelancer_path(bid.freelancer) do %>
+                      <p class="mb-2 mx-2">@<%= bid.freelancer.username %></p>
+                    <% end %>
                     <p class="mb-2 mx-2" style="font-size:20px;">
                       <i class="fa-solid fa-shield-heart"></i>
                       <i class="fa-solid fa-shield-virus"></i>
@@ -93,7 +95,7 @@
         <!-- end bid index-->
         <!-- ************** INSERT ALL NEW WHITE BOXES HERE!!!!! NOT BELOW THANKS ************ -->
         <%# ============== "COMPLETE YOUR PROFILE" PARTIAL ============== %>
-        <%# if current_user.want_to_work %>
+        <% unless current_user == @job.employer %>
           <div class="white-box"> <div class="border-bottom py-3">
             <h3 class="font-weight-bold">Complete your profile</h3>
           </div>
@@ -106,7 +108,7 @@
           </ul>
           <%= render "shared/bid_form" %>
         </div>
-        <%# end %>
+        <% end %>
       </div>
       <!-- about employer -->
       <div class="col-3">

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  # before_action :authenticate_user!, unless: :skip_pundit?
+  before_action :authenticate_user!, unless: :skip_pundit?
   before_action :configure_permitted_parameters, if: :devise_controller?
   include Pundit::Authorization
 
@@ -10,14 +10,15 @@ class ApplicationController < ActionController::Base
   # # Uncomment when you *really understand* Pundit!
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   def user_not_authorized
-    flash[:alert] = "You are not authorized to perform this action."
-    redirect_to(root_path)
+    flash[:alert] = "You need to login to perform this action!"
+    redirect_to(new_user_registration_path)
   end
 
   private
 
   def skip_pundit?
-    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+    # devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+    devise_controller? || !current_user
   end
 
   protected
