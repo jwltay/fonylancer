@@ -9,4 +9,8 @@ class BidPolicy < ApplicationPolicy
       end
     end
   end
+
+  def create?
+    true if user == record.freelancer
+  end
 end
