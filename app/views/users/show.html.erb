@@ -1,12 +1,14 @@
 <%= render "shared/secondary_navbar" %>
 <div class="background-img"></div>
 
+<!-- profile bar -->
+
 <div class="profile-bar" data-controller="profilebar" data-action="scroll@window->profilebar#makeOpaque">
   <div class="container">
     <div class="d-flex justify-content-between align-items-center">
       <div class="profile-bar-content">
         <% if @user.photo_blob %>
-          <%= image_tag(cl_image_path @user.photo.key, class: "rounded me-3", style: "width: 50px; height: 50px; object-fit: cover;") %>
+          <%= image_tag (cl_image_path @user.photo.key), class: "rounded me-3", style: "width: 50px; height: 50px; object-fit: cover;" %>
         <% else %>
           <%= image_tag("default_avatar.png", class: "rounded me-3", style: "width: 50px; height: 50px; object-fit: cover;") %>
         <% end %>
@@ -16,12 +18,15 @@
       <a href="#" class="btn btn-primary me-2">Request quote</a>
     <% end %>
   </div>
-</div></div><div class="container">
+</div></div><div
+class="container">
 
+
+<!-- profile avatar sidebar -->
 <div class="white-box d-flex justify-content-between">
   <div class="d-flex flex-column">
     <% if @user.photo_blob %>
-      <%= image_tag(cl_image_path @user.photo.key, class: "rounded me-2 mb-2", style: "width: 250px; height: 250px; object-fit: cover;") %>
+      <%= image_tag (cl_image_path @user.photo.key), class: "rounded me-2 mb-2", style: "width: 250px; height: 250px; object-fit: cover;" %>
     <% else %>
       <%= image_tag("default_avatar.png", class: "rounded me-2 mb-2", style: "width: 250px; height: 250px; object-fit: cover;") %>
     <% end %>
@@ -53,9 +58,11 @@
         </div>
 
       </div>
-
-
     </div>
+
+
+    <!-- stats -->
+
     <div class="flex-grow-1 ms-2">
       <div class="d-flex justify-content-between align-items-center">
         <h2 class="fw-light">
@@ -101,11 +108,30 @@
     </div>
   </div>
 
+
+  <!-- in progress -->
+
+  <% if current_user == @user %>
+    <div class="white-box">
+      <h3 class="border-bottom py-3 mb-3">In Progress</h3>
+      <ul class="list-unstyled pe-0">
+        <% @user.open_projects.each do |bid| %>
+          <li>
+            <%= link_to bid.job.title, edit_job_path(bid.job), class: "btn btn-outline-secondary rounded-pill", type: "button" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <!-- potfolio items -->
+
   <div class="white-box">
-    <h3 class="border-bottom py-3">Portfolio Items</h3>
+    <h3 class="border-bottom py-3 mb-3">Portfolio Items</h3>
     <ul class="list-unstyled">
       <div class="cards">
-        <% @successful_bids.each do |bid| %>
+        <% @user.completed_projects.each do |bid| %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path bid.job.photo.key %>')">
             <li><%= link_to bid.job.title, "#", class:"text-decoration-none text-white" %></li>
           </div>

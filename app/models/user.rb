@@ -24,4 +24,15 @@ class User < ApplicationRecord
     @country_code = location.split(", ")[2]
     JSON.parse(URI.open("https://restcountries.com/v3.1/alpha/#{@country_code}").read)[0]["name"]["common"]
   end
+
+  def open_projects
+    sql = "bids.freelancer_id = #{id} AND bids.accepted = true AND jobs.complete = false"
+    Bid.joins(:job).where(sql)
+  end
+
+
+  def completed_projects
+    sql = "bids.freelancer_id = #{id} AND bids.accepted = true AND jobs.complete = true"
+    Bid.joins(:job).where(sql)
+  end
 end
