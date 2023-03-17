@@ -1,37 +1,45 @@
 <div class="container">
   <div class="white-card">
-    <img _ngcontent-webapp-c130="" alt="Freelancer logo" class="LogoImg" src="https://www.f-cdn.com/assets/main/en/assets/freelancer-logo-old.svg" data-size="mid">
-    <h2> Signup</h2>
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= f.error_notification %>
-      <div class="form-inputs">
-        <%= f.input :username,
+    <%= link_to root_path do %>
+      <img _ngcontent-webapp-c130="" alt="Freelancer logo" class="LogoImg mb-3" src="https://www.f-cdn.com/assets/main/en/assets/freelancer-logo-old.svg" data-size="mid">
+      <% end %>
+      <h2 class="mb-3">
+        Sign up</h2>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :username,
                     required: true,
                     autofocus: true %>
-        <%= f.input :name,
+          <%= f.input :name,
                     required: true,
                     autofocus: true %>
-        <%# request a specific format for input %>
-        <%= f.input :location,
+          <%# request a specific format for input %>
+          <%= f.input :location,
                     required: true,
                     autofocus: true,
                     placeholder: "14 Kampong Arang Rd, Singapore 431014"%>
-        <%= f.input :email,
+          <%= f.input :email,
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "email" }%>
-        <%= f.input :password,
+          <%= f.input :password,
                     required: true,
                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                     input_html: { autocomplete: "new-password" } %>
-        <%= f.input :password_confirmation,
+          <%= f.input :password_confirmation,
                     required: true,
                     input_html: { autocomplete: "new-password" } %>
+        </div>
+        <div class="form-actions">
+          <div class="row" style="margin-right: 0px; margin-left: 0px;">
+            <%= f.button :submit, "Join Freelancer", class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+      <div class="mt-3">
+        Already a user?
+        <%= render "devise/shared/links" %>
       </div>
-      <div class="form-actions">
-        <%= f.button :submit, "Sign up" %>
-      </div>
-    <% end %>
-    <%= render "devise/shared/links" %>
+    </div>
   </div>
-</div>

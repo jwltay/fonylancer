@@ -8,8 +8,8 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
     @bid = Bid.new
-    @country_code = @job.employer.location.split(", ")[2]
-    @country = JSON.parse(URI.open("https://restcountries.com/v3.1/alpha/#{@country_code}").read)[0]["name"]["common"]
+    @country_code = @job.employer.country_code
+    @country = @job.employer.country
     authorize @job
     @bids = policy_scope(@job.bids)
   end
@@ -32,9 +32,23 @@ class JobsController < ApplicationController
     end
   end
 
+  def edit
+    authenticate_user!
+    @job = Job.find(params[:id])
+    authorize @job
+  end
+
+  def update
+    authenticate_user!
+    @job = Job.find(params[:id])
+    @job.update!(job_params)
+    authorize @job
+    redirect to freelancer_path(current_user)
+  end
+
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :budget, :start_date, :end_date)
+    params.require(:job).permit(:title, :description, :budget, :start_date, :end_date, :complete)
   end
 end
