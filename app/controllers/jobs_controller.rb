@@ -32,9 +32,23 @@ class JobsController < ApplicationController
     end
   end
 
+  def edit
+    authenticate_user!
+    @job = Job.find(params[:id])
+    authorize @job
+  end
+
+  def update
+    authenticate_user!
+    @job = Job.find(params[:id])
+    @job.update!(job_params)
+    authorize @job
+    redirect to freelancer_path(current_user)
+  end
+
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :budget, :start_date, :end_date)
+    params.require(:job).permit(:title, :description, :budget, :start_date, :end_date, :complete)
   end
 end

@@ -1,6 +1,7 @@
 <%= render "shared/secondary_navbar" %>
+<!-- job header -->
 <div class="black-header">
-  <div class="container">
+  <div class="container px-4">
     <div class="d-flex align-items-center justify-content-between">
       <h2><%= @job.title %></h2>
       <p class="fw-bold">
@@ -13,6 +14,8 @@
     </div>
   </div>
 </div>
+<!-- end header -->
+<!-- job description -->
 <div class="container">
   <div class="row">
     <div class="col-9">
@@ -33,9 +36,58 @@
     <input class="btn btn-outline-secondary rounded-pill" type="button" value="<%= Faker::Job.key_skill %>"></li>
 </ul>
 <p class="mt-5">Project ID:
-  <%= rand(34762..45734) %></p>
+  <%= rand(34734362..45713134) %></p>
 </div>
+<!-- end job description -->
+<!-- bid index section -->
+<% if current_user == @job.employer %>
+  <div class="white-box">
+    <div class="border-bottom py-3">
+      <h3 class="font-weight-bold">Current Bids</h3>
+    </div>
+    <span>
+      <% @bids.each do |bid| %>
+        <div class="box border">
+          <%= image_tag "https://source.unsplash.com/random", class: "freelancer_avatar" %>
+          <i class="fa-solid fa-star text-danger"></i>
+          <i class="fa-solid fa-star text-danger"></i>
+          <i class="fa-solid fa-star text-danger"></i>
+          <i class="fa-solid fa-star text-danger"></i>
+          <i class="fa-solid fa-star text-danger"></i>
+          <%= rand(4.7..5).round(1) %>
+          <i class="fa-solid fa-message ms-3"></i>
+          <%= rand(1..20) %>
+          <i class="fa-solid fa-user"></i>
+          <p><%= bid.freelancer.username %></p>
+          <p><%= bid.rate %></p>
+          <p><%= bid.accepted %></p>
+          <p><%= bid.freelancer_id %></p>
+          <p><%= bid.job_id %></p>
+        </div>
+      <% end %>
+    </span>
+  </div>
+<% end %>
+<!-- end bid index-->
+<!-- ************** INSERT ALL NEW WHITE BOXES HERE!!!!! NOT BELOW THANKS ************ -->
+<%# ============== "COMPLETE YOUR PROFILE" PARTIAL ============== %>
+<%# if current_user.want_to_work %>
+<div class="white-box">
+  <div class="border-bottom py-3">
+    <h3 class="font-weight-bold">Complete your profile</h3>
+  </div>
+  <p class="py-3">Please complete these 3 steps before bidding on the project</p>
+  <%= image_tag "form-progress-bar.png", class:"progress-bar" %>
+  <ul class="d-flex list-unstyled justify-content-between fw-semibold">
+    <li>Update your skills</li>
+    <li>Verify your email</li>
+    <li>Update your profile</li>
+  </ul>
+  <%= render "shared/bid_form" %>
 </div>
+<%# end %>
+</div>
+<!-- about employer -->
 <div class="col-3">
   <div class="white-box">
     <h5 class="border-bottom py-2">About the Client</h5>
@@ -65,7 +117,7 @@
           <i class="fa-solid fa-star text-danger"></i>
           <i class="fa-solid fa-star text-danger"></i>
           <i class="fa-solid fa-star text-danger"></i>
-          5.0
+          <%= rand(4.7..5).round(1) %>
           <i class="fa-solid fa-message ms-3"></i>
           <%= rand(1..20) %>
         </p>
@@ -83,52 +135,12 @@
   </div>
 </div>
 </div>
-<%# ============== "BIDS INDEX" PARTIAL ============== %>
-<div class="container">
-  <div class="row">
-    <div class="col-9">
-      <div class="white-box">
-        <div class="container">
-          <% if user_signed_in? %>
-            <h3 class="mt-2 mb-2" id="header-font">
-              <div class="container">
-                <% if user_signed_in? %>
-                <% end %></h3>
-            <% end %>
-            <% @bids.each do |bid| %>
-              <div class="white-box">
-                <%= image_tag "https://source.unsplash.com/random", class: "freelancer_avatar" %>
-                <div>
-                  <div class="col-10">
-                    <p class="mb-2">
-                      <i class="fa-solid fa-star text-danger"></i>
-                      <i class="fa-solid fa-star text-danger"></i>
-                      <i class="fa-solid fa-star text-danger"></i>
-                      <i class="fa-solid fa-star text-danger"></i>
-                      <i class="fa-solid fa-star text-danger"></i>
-                      5.0
-                      <i class="fa-solid fa-message ms-3"></i>
-                      <%= rand(1..20) %>
-                    </p>
-                  </div>
-                  <div class="row">
-                    <div class="col-1">
-                      <i class="fa-solid fa-user"></i>
-                    </div>
-                    <p><%= bid.freelancer.username %></p>
-                    <p><%= bid.rate %></p>
-                    <p><%= bid.accepted %></p>
-                    <p><%= bid.freelancer_id %></p>
-                    <p><%= bid.job_id %></p>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
+<<<<<<< HEAD
       <%# ============== END "BIDS INDEX" PARTIAL ============== %>
       <%# ============== "COMPLETE YOUR PROFILE" PARTIAL ============== %>
       <%# if current_user.want_to_work %>
       <%= render "shared/bid_form" %>
       <%# end %>
+=======
+      <!-- end about employer -->
+  >>>>>>> master

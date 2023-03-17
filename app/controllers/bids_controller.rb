@@ -10,16 +10,16 @@ class BidsController < ApplicationController
   #   end
   # end
 
-  def new
-    @bid = Bid.new
-  end
+  # def new
+  #   @bid = Bid.new
+  # end
 
   def create
     @bid = Bid.new(bid_params)
     @bid.job = @job
     @bid.freelancer = current_user
     current_user.update(user_params)
-
+    authorize @bid
     if @bid.save
       flash[:notice] = "Bid submitted successfully!"
       redirect_to job_path(@job)
