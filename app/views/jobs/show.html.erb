@@ -45,7 +45,8 @@
         <!-- end job description -->
 
         <!-- bid index section -->
-        <% if current_user == @job.employer %>
+
+        <% if (current_user == @job.employer) && @job.open? %>
           <div class="white-box">
             <div class="border-bottom py-3">
               <h3 class="font-weight-bold">Current Bids</h3>
@@ -78,6 +79,9 @@
                     reviews)
                   </p>
                   <p><%= bid.freelancer.description %></p>
+                  <p><%= bid.id %></p>
+                  <p><%= bid.job.id %></p>
+                  <p><%= bid.job.employer == current_user %></p>
                 </div>
                 <div class="freelancer-card-rates">
                   <h3>$<%= rand(50..500) %> USD</h3>
@@ -85,7 +89,7 @@
                   <p>
                     <i class="fa-regular fa-heart"></i>
                   </p>
-                  <%= link_to new_job_path, class: "btn btn-danger text-white d-inline-block mt-auto p-2" do %>
+                  <%= link_to job_bid_path(bid.job, bid), data: {turbo_method: :patch, turbo_confirm: "Acccept bid?"}, class: "btn btn-danger text-white d-inline-block mt-auto p-2" do %>
                     Accept
                   <% end %>
                 </div>
@@ -130,7 +134,7 @@
           </div>
           <div class="row">
             <div class="col-1">
-              <img src="https://www.countryflagicons.com/FLAT/16/<%= @country_code %>.png"></div>
+              <img src="https://www.countryflagicons.com/FLAT/16/<%= @country_code %>.png">
               <div class="col-10">
                 <p class="mb-2"><%= @country %></p>
               </div>
