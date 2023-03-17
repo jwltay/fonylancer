@@ -3,23 +3,22 @@
   <head>
     <title>Fonylancer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <%= csrf_meta_tags %>
-      <%= csp_meta_tag %>
-      <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-      <%= javascript_include_tag "application.js", "data-turbo-track": "reload", defer: true %>
-    </head>
-    <body>
-      <% if notice || alert %>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-      <% end %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application.js", "data-turbo-track": "reload", defer: true %>
+  </head>
+  <body>
+    <% if notice || alert %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    <% end %>
 
-      <% unless current_page?(new_job_path) || current_page?(new_user_registration_path) %>
-        <%= render "shared/navbar" %>
-      <% end %>
+    <% unless current_page?(new_job_path) || current_page?(new_user_registration_path) %>
+    <%= render "shared/navbar" %>
+  <% end %>
 
-      <%= yield %>
-      <%= render "shared/flashes" %>
-    </body>
-  </html>
+  <%= yield %>
+  <%= render "shared/flashes" %>
+  <%= render "shared/footer" %>
 </html>
