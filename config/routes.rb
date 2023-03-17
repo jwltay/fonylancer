@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # root to: "pages#home"
   root to: 'users#index'
 
-  resources :jobs, only: %i[index show new create] do
+  resources :jobs, only: %i[index show new create edit update] do
     resources :bids, only: %i[index new create update]
   end
 
