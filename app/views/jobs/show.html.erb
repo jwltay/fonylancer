@@ -83,6 +83,7 @@
   </div>
 </div>
 </div>
+<%# ============== "BIDS INDEX" PARTIAL ============== %>
 <div class="container">
   <div class="row">
     <div class="col-9">
@@ -126,9 +127,8 @@
           </div>
         </div>
       </div>
-
-<%# ============== "COMPLETE YOUR PROFILE" PARTIAL ============== %>
-
-<%# if current_user.want_to_work %>
-<%= render "shared/bid_form" %>
-<%# end %>
+      <%# ============== END "BIDS INDEX" PARTIAL ============== %>
+      <%# ============== "COMPLETE YOUR PROFILE" PARTIAL ============== %>
+      <%# if current_user.want_to_work %>
+      <%= render "shared/bid_form" %>
+      <%# end %>
