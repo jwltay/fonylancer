@@ -20,32 +20,38 @@
                 <div class="d-flex align-items-center">
                   <h3><%= freelancer.name %></h3>
                   <p class="mb-2 mx-2">@<%= freelancer.username %></p>
+                  <p class="mb-2 mx-2" style="font-size:20px;">
+                    <i class="fa-solid fa-shield-heart"></i>
+                    <i class="fa-solid fa-shield-virus"></i>
+                    <i class="fa-solid fa-building-user"></i>
+                  </p>
                 </div>
-                <div
-                  data-controller="truncate"
-                  data-truncate-target="content"
-                  data-truncate-max-height="200"
-                  data-truncate-collapsed="true"
-                  class="truncate"
-                >
-                  <p><%= freelancer.description %></p>
-                  <a
-                    data-action="click->truncate#toggleContent"
-                    data-truncate-target="toggle"
-                    class="btn btn-link truncate-toggle">
-                  </a>
-                </div>
+                <p>
+                  <i class="fa-solid fa-star text-danger"></i>
+                  <i class="fa-solid fa-star text-danger"></i>
+                  <i class="fa-solid fa-star text-danger"></i>
+                  <i class="fa-solid fa-star text-danger"></i>
+                  <i class="fa-solid fa-star text-danger"></i>
+                  <%= rand(4.7..5).round(1) %>
+                  (<%= rand(1..20) %>
+                  reviews)
+                </p>
+                <p><%= freelancer.description %></p>
               </div>
+
             <% end %>
 
-            <div class="freelancer-card-rates">
-              <h3>$<%= rand(50..500) %> USD</h3>
-              <p>per hour</p>
-              <%= link_to new_user_registration_path, class: "btn btn-primary d-inline-block mt-auto p-2" do %>
-                <%= image_tag "small_bird.jpg", style: "height: 32px" %>
-                Hire me
-              <% end %>
-            </div>
+              <div class="freelancer-card-rates">
+                <h3>$<%= rand(50..500) %> USD</h3>
+                <p>per hour</p>
+                <p>
+                  <i class="fa-regular fa-heart"></i>
+                </p>
+                <%= link_to new_user_registration_path, class: "btn btn-primary d-inline-block mt-auto p-2" do %>
+                  <%= image_tag "small_bird.jpg", style: "height: 32px" %>
+                  Hire me
+                <% end %>
+              </div>
 
           </div>
         <% end %>
