@@ -40,32 +40,56 @@
         </div>
         <!-- end job description -->
         <!-- bid index section -->
-        <% if current_user == @job.employer %>
+
+        <% if (current_user == @job.employer) && @job.open? %>
           <div class="white-box">
             <div class="border-bottom py-3">
               <h3 class="font-weight-bold">Current Bids</h3>
             </div>
-            <span>
-              <% @bids.each do |bid| %>
-                <div class="box border">
-                  <%= image_tag "https://source.unsplash.com/random", class: "freelancer_avatar" %>
-                  <i class="fa-solid fa-star text-danger"></i>
-                  <i class="fa-solid fa-star text-danger"></i>
-                  <i class="fa-solid fa-star text-danger"></i>
-                  <i class="fa-solid fa-star text-danger"></i>
-                  <i class="fa-solid fa-star text-danger"></i>
-                  <%= rand(4.7..5).round(1) %>
-                  <i class="fa-solid fa-message ms-3"></i>
-                  <%= rand(1..20) %>
-                  <i class="fa-solid fa-user"></i>
-                  <p><%= bid.freelancer.username %></p>
-                  <p><%= bid.rate %></p>
-                  <p><%= bid.accepted %></p>
-                  <p><%= bid.freelancer_id %></p>
-                  <p><%= bid.job_id %></p>
+
+            <% @bids.each do |bid| %>
+              <div class="freelancer-card d-flex">
+                <div class="freelancer-card-photo">
+                  <%= image_tag cl_image_path bid.freelancer.photo.key %>
                 </div>
-              <% end %>
-            </span>
+
+                <div class="freelancer-card-details">
+                  <div class="d-flex align-items-center">
+                    <h3><%= bid.freelancer.name %></h3>
+                    <p class="mb-2 mx-2">@<%= bid.freelancer.username %></p>
+                    <p class="mb-2 mx-2" style="font-size:20px;">
+                      <i class="fa-solid fa-shield-heart"></i>
+                      <i class="fa-solid fa-shield-virus"></i>
+                      <i class="fa-solid fa-building-user"></i>
+                    </p>
+                  </div>
+                  <p>
+                    <i class="fa-solid fa-star text-danger"></i>
+                    <i class="fa-solid fa-star text-danger"></i>
+                    <i class="fa-solid fa-star text-danger"></i>
+                    <i class="fa-solid fa-star text-danger"></i>
+                    <i class="fa-solid fa-star text-danger"></i>
+                    <%= rand(4.7..5).round(1) %>
+                    (<%= rand(1..20) %>
+                    reviews)
+                  </p>
+                  <p><%= bid.freelancer.description %></p>
+                  <p><%= bid.id %></p>
+                  <p><%= bid.job.id %></p>
+                  <p><%= bid.job.employer == current_user %></p>
+                </div>
+                <div class="freelancer-card-rates">
+                  <h3>$<%= rand(50..500) %> USD</h3>
+                  <p>per hour</p>
+                  <p>
+                    <i class="fa-regular fa-heart"></i>
+                  </p>
+                  <%= link_to job_bid_path(bid.job, bid), data: {turbo_method: :patch, turbo_confirm: "Acccept bid?"}, class: "btn btn-danger text-white d-inline-block mt-auto p-2" do %>
+                    Accept
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
           </div>
         <% end %>
         <!-- end bid index-->
@@ -100,7 +124,7 @@
           </div>
           <div class="row">
             <div class="col-1">
-              <img src="https://www.countryflagicons.com/FLAT/16/<%= @country_code %>.png"></div>
+              <img src="https://www.countryflagicons.com/FLAT/16/<%= @country_code %>.png">
               <div class="col-10">
                 <p class="mb-2"><%= @country %></p>
               </div>

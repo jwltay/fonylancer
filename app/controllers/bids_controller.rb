@@ -30,6 +30,7 @@ class BidsController < ApplicationController
 
   def update
     @bid = Bid.find(params[:id])
+    authorize @bid
     @bid.accepted = true
     @bid.save!
     @job = Job.find(params[:job_id])
